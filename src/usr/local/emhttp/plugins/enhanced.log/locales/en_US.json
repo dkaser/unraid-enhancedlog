@@ -1,0 +1,40 @@
+{
+    "apply": "Apply",
+    "done": "Done",
+    "default": "Default",
+    "yes": "Yes",
+    "no": "No",
+    "custom_match_strings": "Custom Syslog Match Strings",
+    "syslog_filter_strings": "Syslog Filter Strings",
+    "configuration": {
+        "syslog_config": "Syslog Configuration",
+        "show_all_lines": "Show All Lines in Log",
+        "number_of_lines": "Number of Lines to Display",
+        "error_highlight": "Enable Error Highlighting",
+        "minor_highlight": "Enable Minor Issues Highlighting",
+        "lime_highlight": "Enable LimeTech Highlighting",
+        "array_highlight": "Enable Array Highlighting",
+        "system_highlight": "Enable System Highlighting",
+        "file_highlight": "Enable Filesystem Highlighting",
+        "drive_highlight": "Enable Drive Related Highlighting",
+        "network_highlight": "Enable Network Highlighting",
+        "login_highlight": "Enable Login Highlighting",
+        "emhttp_highlight": "Enable emhttp Highlighting",
+        "other_highlight": "Enable Other Highlighting"
+    },
+    "colors": {
+        "syslog_colors": "Syslog Colors",
+        "color_chart": "Color Selection Chart",
+        "error": "Error",
+        "minor": "Minor Issues",
+        "limetech": "LimeTech",
+        "array": "Array",
+        "system": "System",
+        "file": "Filesystem",
+        "drive": "Drive Related",
+        "network": "Network",
+        "login": "Login",
+        "emhttp": "emhttp",
+        "other": "Other"
+    }
+}

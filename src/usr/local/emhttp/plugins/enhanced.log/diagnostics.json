@@ -1,0 +1,7 @@
+{
+    "title": "Enhanced Syslog",
+    "files": [
+        "/var/log/enhanced.log*"
+    ],
+    "system_diagnostics": true
+}

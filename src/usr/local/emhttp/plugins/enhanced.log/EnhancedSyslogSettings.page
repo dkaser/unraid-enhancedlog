@@ -2,4 +2,5 @@ Menu="Utilities"
 Type="xmenu"
 Title="Enhanced Syslog Settings"
 Icon="align-left"
+Tabs="true"
 ---

@@ -1,0 +1,9 @@
+{
+    "name": "enhanced.log",
+    "package_name": "unraid-enhancedlog",
+    "author": "Derek Kaser",
+    "min": "7.0.0",
+    "icon": "align-left",
+    "support": "https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/",
+    "launch": "Tools/EnhancedSyslog"
+}
