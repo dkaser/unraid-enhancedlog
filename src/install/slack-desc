@@ -1,9 +1,9 @@
-                      |-----handy-ruler------------------------------------------------------|
-unraid-plugin-template: unraid-plugin-template
-unraid-plugin-template:
-unraid-plugin-template: Sample slack-desc file
-unraid-plugin-template: 
-unraid-plugin-template: 
-unraid-plugin-template:
-unraid-plugin-template: https://github.com/dkaser/unraid-plugin-template
-unraid-plugin-template:
+                  |-----handy-ruler------------------------------------------------------|
+unraid-enhancedlog: unraid-enhancedlog
+unraid-enhancedlog:
+unraid-enhancedlog: This plugin enhances the built-in Syslog page to view the system log 
+unraid-enhancedlog: with highlighted lines.  You can enable or disable event highlighting 
+unraid-enhancedlog: and set your own colors for each event. 
+unraid-enhancedlog:
+unraid-enhancedlog: https://github.com/dkaser/unraid-enhancedlog
+unraid-enhancedlog:
