@@ -1,0 +1,72 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN>
+
+<PLUGIN 
+  name="enhanced.log"
+  author="Derek Kaser"
+  version="2025.05.19"
+  launch="Tools/EnhancedSyslog"
+  pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
+  support="https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/"
+  min="7.0.0"
+  
+  icon="align-left"
+>
+
+<CHANGES>
+<![CDATA[
+###2025.05.19###
+- Migration to new repo
+
+For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
+]]>
+</CHANGES>
+
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.19-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.05.19/unraid-enhancedlog-2025.05.19-noarch-1.txz</URL>
+<SHA256>183a3802698b7043af97fbb6b9d9aa725833ff891bb7e86fbd6bdb06d418a78c</SHA256>
+</FILE>
+
+<!--
+The 'install' script.
+-->
+<FILE Run="/bin/bash">
+<INLINE>
+<![CDATA[
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.19-noarch-1.txz
+
+# cleanup old versions
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.05.19')
+
+echo ""
+echo "----------------------------------------------------"
+echo " enhanced.log has been installed."
+echo " Version: 2025.05.19"
+echo "----------------------------------------------------"
+echo ""
+]]>
+</INLINE>
+</FILE>
+
+<!--
+The 'remove' script.
+-->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+<![CDATA[
+removepkg unraid-enhancedlog
+
+rm -rf /usr/local/emhttp/plugins/enhanced.log
+rm -rf /boot/config/plugins/enhanced.log
+
+# Remove rsyslog filtering.
+rm -rf /etc/rsyslog.d/02-blocklist-extra.conf
+
+# Restart rsyslog
+echo "Restarting rsyslog..."
+/etc/rc.d/rc.rsyslogd restart >/dev/null
+]]>
+</INLINE>
+</FILE>
+
+</PLUGIN>
