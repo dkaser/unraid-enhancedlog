@@ -46,7 +46,7 @@ class Utils
     public static function make_option(bool|string $selected, string $value, string $text, string $extra = ""): string
     {
         if (is_string($selected)) {
-            $selected = filter_var($selected, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? true;
+            $selected = $selected === $value;
         }
 
         return "<option value='{$value}'" . ($selected ? " selected" : "") . (strlen($extra) ? " {$extra}" : "") . ">{$text}</option>";
