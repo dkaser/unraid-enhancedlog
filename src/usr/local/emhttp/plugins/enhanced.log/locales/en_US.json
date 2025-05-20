@@ -4,6 +4,8 @@
     "default": "Default",
     "yes": "Yes",
     "no": "No",
+    "download": "Download",
+    "refresh": "Refresh",
     "custom_match_strings": "Custom Syslog Match Strings",
     "syslog_filter_strings": "Syslog Filter Strings",
     "configuration": {

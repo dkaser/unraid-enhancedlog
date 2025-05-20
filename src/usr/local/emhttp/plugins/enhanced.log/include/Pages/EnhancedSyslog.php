@@ -24,6 +24,14 @@ namespace EnhancedLog;
 
 $tr = $tr ?? new Translator();
 
+?>
+<div>
+<input type="button" value="<?= $tr->tr("download"); ?>" onclick="getlog()">
+<input type="button" value="<?= $tr->tr("refresh"); ?>" onclick="refresh()">
+<button type="button" onclick="done()"><?= $tr->tr("done"); ?></button>
+</div>
+<?php
+
 $zip = str_replace(' ', '_', strtolower($varName ?? "")) . "-syslog-" . date('Ymd-Hi') . ".zip";
 
 $enhanced_log_cfg = Utils::getConfig();
@@ -50,7 +58,7 @@ if (in_array($theme ?? "", $themeArray)) {
 
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
     $errors_color = $enhanced_log_cfg['ERRORS_CLR'];
-    $errors_tag   = "<span style='background-color:{$errors_color}; font-size: {$font_size}'>&nbsp;_(Errors)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $errors_tag   = "<span style='background-color:{$errors_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.error") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $errors_color = "";
     $errors_tag   = "";
@@ -58,7 +66,7 @@ if ($enhanced_log_cfg['ERRORS'] == "yes") {
 
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
     $minor_issues_color = $enhanced_log_cfg['MINOR_ISSUES_CLR'];
-    $minor_issues_tag   = "<span style='background-color:{$minor_issues_color}; font-size: {$font_size}'>&nbsp_(Minor Issues)_&nbsp</span>&nbsp;&nbsp;&nbsp;";
+    $minor_issues_tag   = "<span style='background-color:{$minor_issues_color}; font-size: {$font_size}'>&nbsp" . $tr->tr("colors.minor") . "&nbsp</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $minor_issues_color = "";
     $minor_issues_tag   = "";
@@ -66,7 +74,7 @@ if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
 
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
     $lime_tech_color = $enhanced_log_cfg['LIME_TECH_CLR'];
-    $lime_tech_tag   = "<span style='background-color:{$lime_tech_color}; font-size: {$font_size}'>&nbsp;_(Lime Tech)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $lime_tech_tag   = "<span style='background-color:{$lime_tech_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.limetech") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $lime_tech_color = "";
     $lime_tech_tag   = "";
@@ -74,7 +82,7 @@ if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
 
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
     $array_color = $enhanced_log_cfg['ARRAY_CLR'];
-    $array_tag   = "<span style='background-color:{$array_color}; font-size: {$font_size}'>&nbsp;_(Array)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $array_tag   = "<span style='background-color:{$array_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.array") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $array_color = "";
     $array_tag   = "";
@@ -82,7 +90,7 @@ if ($enhanced_log_cfg['ARRAY'] == "yes") {
 
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
     $system_color = $enhanced_log_cfg['SYSTEM_CLR'];
-    $system_tag   = "<span style='background-color:{$system_color}; font-size: {$font_size}'>&nbsp;_(System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $system_tag   = "<span style='background-color:{$system_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.system") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $system_color = "";
     $system_tag   = "";
@@ -90,7 +98,7 @@ if ($enhanced_log_cfg['SYSTEM'] == "yes") {
 
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
     $file_system_color = $enhanced_log_cfg['FILE_SYSTEM_CLR'];
-    $file_system_tag   = "<span style='background-color:{$file_system_color}; font-size: {$font_size}'>&nbsp;_(File System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $file_system_tag   = "<span style='background-color:{$file_system_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.file") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $file_system_color = "";
     $file_system_tag   = "";
@@ -98,7 +106,7 @@ if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
 
 if ($enhanced_log_cfg['DRIVE_RELATED'] == "yes") {
     $drive_related_color = $enhanced_log_cfg['DRIVE_RELATED_CLR'];
-    $drive_related_tag   = "<span style='background-color:{$drive_related_color}; font-size: {$font_size}'>&nbsp;_(Drive Related)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $drive_related_tag   = "<span style='background-color:{$drive_related_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.drive") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $drive_related_color = "";
     $drive_related_tag   = "";
@@ -106,7 +114,7 @@ if ($enhanced_log_cfg['DRIVE_RELATED'] == "yes") {
 
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
     $network_color = $enhanced_log_cfg['NETWORK_CLR'];
-    $network_tag   = "<span style='background-color:{$network_color}; font-size: {$font_size}'>&nbsp;_(Network)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $network_tag   = "<span style='background-color:{$network_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.network") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $network_color = "";
     $network_tag   = "";
@@ -114,7 +122,7 @@ if ($enhanced_log_cfg['NETWORK'] == "yes") {
 
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
     $login_color = $enhanced_log_cfg['LOGIN_CLR'];
-    $login_tag   = "<span style='background-color:{$login_color}; font-size: {$font_size}'>&nbsp;_(Login)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $login_tag   = "<span style='background-color:{$login_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.login") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $login_color = "";
     $login_tag   = "";
@@ -122,7 +130,7 @@ if ($enhanced_log_cfg['LOGIN'] == "yes") {
 
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
     $emhttp_color = $enhanced_log_cfg['EMHTTP_CLR'];
-    $emhttp_tag   = "<span style='background-color:{$emhttp_color}; font-size: {$font_size}'>&nbsp;_(emhttp)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+    $emhttp_tag   = "<span style='background-color:{$emhttp_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.emhttp") . "&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
     $emhttp_color = "";
     $emhttp_tag   = "";
@@ -130,7 +138,7 @@ if ($enhanced_log_cfg['EMHTTP'] == "yes") {
 
 if ($enhanced_log_cfg['OTHER'] == "yes") {
     $other_color = $enhanced_log_cfg['OTHER_CLR'];
-    $other_tag   = "<span style='background-color:{$other_color}; font-size: {$font_size}'>&nbsp;_(Other)_&nbsp;</span>";
+    $other_tag   = "<span style='background-color:{$other_color}; font-size: {$font_size}'>&nbsp;" . $tr->tr("colors.other") . "&nbsp;</span>";
 } else {
     $other_color = "";
     $other_tag   = "";
@@ -179,7 +187,7 @@ foreach ($match as $s) {
     $i++;
 }
 
-echo ($resize ?? false) ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
+echo ($resize ?? false) ? "<pre style='display:none'>" : "<pre>";
 $log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n " . escapeshellarg(strval($display_lines))) ?: "");
 $log_lines = array_reverse($log_lines);
 
@@ -280,6 +288,3 @@ $(function() {
 <?}?>
 </script>
 
-<input type="button" value="_(Download)_" onclick="getlog()">
-<input type="button" value="_(Refresh)_" onclick="refresh()">
-<button type="button" onclick="done()">_(Done)_</button>
