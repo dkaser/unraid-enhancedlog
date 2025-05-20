@@ -1,0 +1,42 @@
+{
+    "apply": "Aplicar",
+    "done": "Atrás",
+    "default": "Por defecto",
+    "yes": "Sí",
+    "no": "No",
+    "download": "Descargar",
+    "refresh": "Actualizar",
+    "custom_match_strings": "Cadenas personalizadas de coincidencia de Syslog",
+    "syslog_filter_strings": "Cadenas de filtro Syslog",
+    "configuration": {
+        "syslog_config": "Configuración de Syslog",
+        "show_all_lines": "Mostrar todas las líneas en el registro",
+        "number_of_lines": "Cantidad de líneas a desplegar",
+        "error_highlight": "Activar resaltado de errores",
+        "minor_highlight": "Activar resaltado de problemas menores",
+        "lime_highlight": "Activar resaltado de LimeTech",
+        "array_highlight": "Activar resaltado de matriz",
+        "system_highlight": "Activar resaltado de sistema",
+        "file_highlight": "Activar resaltado de Filesystem",
+        "drive_highlight": "Activar resaltado de disco duro",
+        "network_highlight": "Activar resaltado de red",
+        "login_highlight": "Activar resaltado de inicio de sesión",
+        "emhttp_highlight": "Activar resaltado de emhttp",
+        "other_highlight": "Activar otro resaltado"
+    },
+    "colors": {
+        "syslog_colors": "Colores de Syslog",
+        "color_chart": "Gráfico de selección de colores",
+        "error": "Error",
+        "minor": "Problemas menores",
+        "limetech": "LimeTech",
+        "array": "Matriz",
+        "system": "Sistema",
+        "file": "Filesystem",
+        "drive": "Disco duro",
+        "network": "Red",
+        "login": "Iniciar sesión",
+        "emhttp": "emhttp",
+        "other": "Otro"
+    }
+}

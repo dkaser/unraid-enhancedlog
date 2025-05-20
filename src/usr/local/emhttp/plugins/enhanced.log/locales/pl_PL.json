@@ -1,0 +1,42 @@
+{
+    "apply": "",
+    "done": "",
+    "default": "",
+    "yes": "",
+    "no": "",
+    "download": "",
+    "refresh": "",
+    "custom_match_strings": "",
+    "syslog_filter_strings": "",
+    "configuration": {
+        "syslog_config": "",
+        "show_all_lines": "",
+        "number_of_lines": "",
+        "error_highlight": "",
+        "minor_highlight": "",
+        "lime_highlight": "",
+        "array_highlight": "",
+        "system_highlight": "",
+        "file_highlight": "",
+        "drive_highlight": "",
+        "network_highlight": "",
+        "login_highlight": "",
+        "emhttp_highlight": "",
+        "other_highlight": ""
+    },
+    "colors": {
+        "syslog_colors": "",
+        "color_chart": "",
+        "error": "",
+        "minor": "",
+        "limetech": "",
+        "array": "",
+        "system": "",
+        "file": "",
+        "drive": "",
+        "network": "",
+        "login": "",
+        "emhttp": "",
+        "other": ""
+    }
+}
