@@ -4,7 +4,7 @@
 <PLUGIN 
   name="enhanced.log"
   author="Derek Kaser"
-  version="2025.05.20"
+  version="2025.05.22"
   launch="Tools/EnhancedSyslog"
   pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
   support="https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/"
@@ -15,16 +15,17 @@
 
 <CHANGES>
 <![CDATA[
-###2025.05.20###
-- Migration to new repository
+###2025.05.22###
+- Added localization
+- Added metrics
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.20-noarch-1.txz">
-<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.05.20/unraid-enhancedlog-2025.05.20-noarch-1.txz</URL>
-<SHA256>16400175699a7c22e9ad9571976c0c45c805b896da501e1d39c03fc4a79f74a1</SHA256>
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.22-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.05.22/unraid-enhancedlog-2025.05.22-noarch-1.txz</URL>
+<SHA256>16a060b6e3d7bce9f6c8b8e8904c22a416a235bced1ee512fad08c317279aa9e</SHA256>
 </FILE>
 
 <!--
@@ -33,15 +34,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.20-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.22-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.05.20')
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.05.22')
+
+echo "VERSION=2025.05.22" > /usr/local/emhttp/plugins/enhanced.log/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " enhanced.log has been installed."
-echo " Version: 2025.05.20"
+echo " Version: 2025.05.22"
 echo "----------------------------------------------------"
 echo ""
 ]]>
