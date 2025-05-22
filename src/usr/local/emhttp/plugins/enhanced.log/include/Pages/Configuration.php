@@ -210,4 +210,3 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     </dl>
     <blockquote class='inline_help'><?= $tr->tr("metrics.desc"); ?></blockquote>
 </form>
-</div>
