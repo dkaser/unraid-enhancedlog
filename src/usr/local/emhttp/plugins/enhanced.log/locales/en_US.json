@@ -38,5 +38,10 @@
         "login": "Login",
         "emhttp": "emhttp",
         "other": "Other"
+    },
+    "metrics": {
+        "metrics": "Usage Data",
+        "usage": "Allow Usage Data Collection",
+        "desc": "Allows collection of usage data. This sends an anonymized identifier, the current Unraid version, the current version of the plugin, and the enabled/disabled status of some features. No personal or network information is collected."
     }
 }

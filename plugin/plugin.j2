@@ -38,6 +38,8 @@ upgradepkg --install-new /boot/config/plugins/{{ name }}/{{ package_name }}-{{ e
 # cleanup old versions
 rm -f $(ls /boot/config/plugins/{{ name }}/{{ package_name }}-*.txz 2>/dev/null | grep -v '{{ env['PLUGIN_VERSION'] }}')
 
+echo "VERSION={{ env['PLUGIN_VERSION'] }}" > /usr/local/emhttp/plugins/{{ name }}/version.ini
+
 echo ""
 echo "----------------------------------------------------"
 echo " {{ name }} has been installed."
