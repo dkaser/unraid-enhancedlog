@@ -38,5 +38,10 @@
         "login": "Login",
         "emhttp": "emhttp",
         "other": "Altro"
+    },
+    "metrics": {
+        "metrics": "Dati di utilizzo",
+        "usage": "Consenti raccolta dati di utilizzo",
+        "desc": "Consente la raccolta di dati di utilizzo. Invia un identificativo anonimizzato, la versione attuale di Unraid, la versione attuale del plugin e lo stato abilitato/disabilitato di alcune funzionalità. Nessuna informazione personale o di rete sarà raccolta."
     }
 }
