@@ -16,8 +16,9 @@
 <CHANGES>
 <![CDATA[
 ###2025.05.22###
-- Added localization
-- Added metrics
+- Bug fix
+- Add localization
+- Add metrics
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
@@ -25,7 +26,7 @@ For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 
 <FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.05.22-noarch-1.txz">
 <URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.05.22/unraid-enhancedlog-2025.05.22-noarch-1.txz</URL>
-<SHA256>16a060b6e3d7bce9f6c8b8e8904c22a416a235bced1ee512fad08c317279aa9e</SHA256>
+<SHA256>0a6d60915b14775daf739d4f6e910dce15c2df6240bef709beda9b3814275af0</SHA256>
 </FILE>
 
 <!--
