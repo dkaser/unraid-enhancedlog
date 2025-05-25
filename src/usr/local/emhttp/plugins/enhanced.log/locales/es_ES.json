@@ -48,6 +48,7 @@
     "metrics": {
         "metrics": "Datos de uso",
         "usage": "Permitir recolección de datos de uso",
-        "desc": "Permite la recolección de datos de uso. Esto envía un identificador anónimo, la versión actual de Unraid, la versión actual del plugin y el estado habilitado/desactivado de algunas características. No se recopila información personal ni de red."
+        "desc": "Permite la recolección de datos de uso. Esto envía un identificador anónimo, la versión actual de Unraid, la versión actual del plugin y el estado habilitado/desactivado de algunas características. No se recopila información personal ni de red.",
+        "modal": "Este complemento comparte información básica como la versión del complemento y de Unraid con el desarrollador para ayudar a mejorar futuras actualizaciones. No recopila ningún dato personal. Por favor, haz clic en Aceptar para permitir esto o en Rechazar para deshabilitarlo."
     }
 }

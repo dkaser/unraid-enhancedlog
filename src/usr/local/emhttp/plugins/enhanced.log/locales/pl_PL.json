@@ -48,6 +48,7 @@
     "metrics": {
         "metrics": "Dane dotyczące użycia",
         "usage": "Zezwól na zbieranie danych o użytkowaniu",
-        "desc": "Pozwala na zbieranie danych dotyczących użycia. Wysyłany jest zanonimizowany identyfikator, aktualna wersja Unraid, aktualna wersja wtyczki oraz status włączenia/wyłączenia niektórych funkcji. Nie są zbierane żadne informacje osobiste ani dotyczące sieci."
+        "desc": "Pozwala na zbieranie danych dotyczących użycia. Wysyłany jest zanonimizowany identyfikator, aktualna wersja Unraid, aktualna wersja wtyczki oraz status włączenia/wyłączenia niektórych funkcji. Nie są zbierane żadne informacje osobiste ani dotyczące sieci.",
+        "modal": "Ta wtyczka udostępnia podstawowe informacje, takie jak wersja wtyczki oraz Unraid, deweloperowi w celu ulepszania przyszłych aktualizacji. Nie gromadzi żadnych danych osobowych. Prosimy kliknąć Zgadzam się, aby wyrazić na to zgodę, lub Odrzuć, aby wyłączyć."
     }
 }
