@@ -25,8 +25,12 @@ namespace EnhancedLog;
 function getPage(string $filename, bool $niceError = true, array $params = array()): string
 {
     try {
+        $response = "";
+
         require_once dirname(__FILE__) . "/common.php";
-        return includePage(dirname(__FILE__) . "/Pages/{$filename}.php", $params);
+        $response .= includePage(dirname(__FILE__) . "/Pages/Modal.php");
+        $response .= includePage(dirname(__FILE__) . "/Pages/{$filename}.php", $params);
+        return $response;
     } catch (\Throwable $e) {
         if ($niceError) {
             if ( ! defined(__NAMESPACE__ . "\PLUGIN_NAME")) {
