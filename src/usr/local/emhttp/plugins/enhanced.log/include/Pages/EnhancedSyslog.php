@@ -68,8 +68,10 @@ function showLog() {
     $('#logTable').tablesorter({
       widthFixed : true,
       sortList: [[0,1]],
-      sortAppend: [[0,1]],
       widgets: ['stickyHeaders','filter','zebra'],
+      headers: {
+        0: { sorter: 'data' }, // date
+      },
       widgetOptions: {
         // on black and white, offset is height of #menu
         // on azure and gray, offset is height of #header
@@ -134,7 +136,24 @@ function getlog() {
 }
 
 $(function() {
-showLog();
+  $.tablesorter.addParser({
+    // set a unique id
+    id: 'data',
+    is: function(s, table, cell, $cell) {
+      // return false so this parser is not auto detected
+      return false;
+    },
+    format: function(s, table, cell, cellIndex) {
+      var $cell = $(cell);
+      return $cell.attr('data-index') || s;
+    },
+    // flag for filter widget (true = ALWAYS search parsed values; false = search cell text)
+    parsed: false,
+    // set type, either numeric or text
+    type: 'numeric'
+  });
+
+  showLog();
 });
 
 <?php foreach ($colors->getColors() as $color) { ?>

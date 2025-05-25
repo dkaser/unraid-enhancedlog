@@ -67,7 +67,7 @@ try {
             $color = isset($match[$i][1]) ? $colors->getColor($match[$i][1]) : "";
             $rows .= <<<EOT
                 <tr style='background-color:{$color}'>
-                    <td data-text="{$sequence}">{$date}</td>
+                    <td data-index="{$sequence}">{$date}</td>
                     <td>{$source}</td>
                     <td data-text="{$serviceFilter}">{$service}</td>
                     <td>{$message}</td>
