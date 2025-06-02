@@ -14,6 +14,8 @@
     "service": "Dienst",
     "message": "Nachricht",
     "match": "Übereinstimmungstyp",
+    "max_lines": "Maximale Zeilen",
+    "count": "Anzahl",
     "configuration": {
         "syslog_config": "Syslog-Konfiguration",
         "show_all_lines": "Alle Zeilen im Log anzeigen",
@@ -44,11 +46,5 @@
         "login": "Login",
         "emhttp": "emhttp",
         "other": "Sonstiges"
-    },
-    "metrics": {
-        "metrics": "Nutzungsdaten",
-        "usage": "Erfassung von Nutzungsdaten zulassen",
-        "desc": "Ermöglicht die Erfassung von Nutzungsdaten. Dadurch werden eine anonymisierte Kennung, die aktuelle Unraid-Version, die aktuelle Version des Plugins und der aktivierte/deaktivierte Status einiger Funktionen gesendet. Es werden keine persönlichen oder Netzwerkinformationen gesammelt.",
-        "modal": "Dieses Plugin übermittelt grundlegende Informationen wie die Plugin- und Unraid-Version an den Entwickler, um zukünftige Updates zu verbessern. Es werden keine persönlichen Daten gesammelt. Bitte klicken Sie auf \"Zustimmen\", um dies zu erlauben, oder auf \"Ablehnen\", um es zu deaktivieren."
     }
 }

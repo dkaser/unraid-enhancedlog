@@ -14,6 +14,8 @@
     "service": "Service",
     "message": "Message",
     "match": "Type de correspondance",
+    "max_lines": "Nombre maximal de lignes",
+    "count": "Nombre",
     "configuration": {
         "syslog_config": "Configuration Syslog",
         "show_all_lines": "Afficher toutes les lignes du journal",
@@ -44,11 +46,5 @@
         "login": "Connexion",
         "emhttp": "emhttp",
         "other": "Autre"
-    },
-    "metrics": {
-        "metrics": "Données d'utilisation",
-        "usage": "Autoriser la collecte des données d'utilisation",
-        "desc": "Permet la collecte de données d'utilisation. Cela envoie un identifiant anonyme, la version actuelle d'Unraid, la version actuelle du plugin, et l'état activé/désactivé de certaines fonctionnalités. Aucune information personnelle ou réseau n'est recueillie.",
-        "modal": "Ce plugin partage des informations de base, comme la version du plugin et la version d'Unraid, avec le développeur pour aider à améliorer les futures mises à jour. Aucune donnée personnelle n'est collectée. Veuillez cliquer sur Accepter pour autoriser ceci ou Refuser pour désactiver."
     }
 }

@@ -14,6 +14,8 @@
     "service": "Tjeneste",
     "message": "Melding",
     "match": "Matchtype",
+    "max_lines": "Maks antall linjer",
+    "count": "Antall",
     "configuration": {
         "syslog_config": "Syslog-konfigurasjon",
         "show_all_lines": "Vis alle linjer i loggen",
@@ -44,11 +46,5 @@
         "login": "Innlogging",
         "emhttp": "emhttp",
         "other": "Annet"
-    },
-    "metrics": {
-        "metrics": "Bruksdata",
-        "usage": "Tillat innsamling av bruksdata",
-        "desc": "Tillater innsamling av bruksdata. Dette sender en anonymisert identifikator, nåværende Unraid-versjon, nåværende versjon av pluginet, og aktivert/deaktivert-status for noen funksjoner. Ingen personlig eller nettverksinformasjon innhentes.",
-        "modal": "Dette programtillegget deler grunnleggende informasjon som programtillegg- og Unraid-versjon med utvikleren for å hjelpe til med å forbedre fremtidige oppdateringer. Det samler ikke inn personopplysninger. Vennligst klikk på Godta for å gi tillatelse til dette eller Avslå for å deaktivere."
     }
 }
