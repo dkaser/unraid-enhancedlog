@@ -79,12 +79,25 @@ class LogReader
     }
 
     /**
+     * @return array<string>
+     */
+    private static function readFile(string $filename, int $maxLines): array
+    {
+        return explode("\n", shell_exec("tail -n " . escapeshellarg(strval($maxLines)) . " " . escapeshellarg($filename)) ?: "");
+    }
+
+    /**
      * @return array<int, LogLine>
      */
     private function readLogLines(): array
     {
         $retval     = array();
-        $logContent = explode("\n", shell_exec("/usr/bin/cat " . escapeshellarg($this->logFile) . " | tail -n " . escapeshellarg(strval($this->maxLines))) ?: "");
+        $logContent = self::readFile($this->logFile, $this->maxLines);
+        if ((count($logContent) < $this->maxLines) && file_exists($this->logFile . ".1")) {
+            // If the log file is smaller than the max lines, try to read the rotated log file
+            $rotatedContent = self::readFile($this->logFile . ".1", $this->maxLines - count($logContent));
+            $logContent     = array_merge($rotatedContent, $logContent);
+        }
 
         foreach ($logContent as $line) {
             if (empty($line)) {
