@@ -57,6 +57,7 @@ class LogLine
     {
         $filters = [
             '/(?<=^|\W)(\d+)(?=\W|$)/',
+            '/(?<=br-|eth)([a-f0-9]+)/'
         ];
 
         $value = preg_replace($filters, "#", $value);
