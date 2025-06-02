@@ -14,6 +14,7 @@
     "service": "Service",
     "message": "Message",
     "match": "Match Type",
+    "count": "Count",
     "configuration": {
         "syslog_config": "Syslog Configuration",
         "show_all_lines": "Show All Lines in Log",

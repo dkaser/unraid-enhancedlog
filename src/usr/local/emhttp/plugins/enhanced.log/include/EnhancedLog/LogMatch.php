@@ -1,9 +1,6 @@
-Menu="EnhancedLog:1"
-Title="System Log"
-Icon="align-left"
-Markdown="false"
----
 <?php
+
+namespace EnhancedLog;
 
 /*
     Copyright (C) 2025  Derek Kaser
@@ -22,11 +19,24 @@ Markdown="false"
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-try {
-    $docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-    require_once "{$docroot}/plugins/enhanced.log/include/page.php";
+class LogMatch
+{
+    private string $regex;
+    private string $match;
 
-    echo EnhancedLog\getPage("EnhancedSyslog", true, array("resize" => $display['resize'] ?? false, "theme" => $theme ?? "", "varName" => $var['NAME'] ?? ""));
-} catch (Throwable $e) {
-    echo "An error occurred: <pre>" . print_r($e, true) . "</pre>";
+    public function __construct(string $regex, string $match)
+    {
+        $this->regex = $regex;
+        $this->match = $match;
+    }
+
+    public function getRegex(): string
+    {
+        return $this->regex;
+    }
+
+    public function getMatch(): string
+    {
+        return $this->match;
+    }
 }

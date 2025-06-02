@@ -1,5 +1,5 @@
-Menu="EnhancedLog:1"
-Title="System Log"
+Menu="EnhancedLog:2"
+Title="Counts"
 Icon="align-left"
 Markdown="false"
 ---
@@ -26,7 +26,7 @@ try {
     $docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
     require_once "{$docroot}/plugins/enhanced.log/include/page.php";
 
-    echo EnhancedLog\getPage("EnhancedSyslog", true, array("resize" => $display['resize'] ?? false, "theme" => $theme ?? "", "varName" => $var['NAME'] ?? ""));
+    echo EnhancedLog\getPage("Hash", true, array());
 } catch (Throwable $e) {
     echo "An error occurred: <pre>" . print_r($e, true) . "</pre>";
 }
