@@ -21,6 +21,29 @@ namespace EnhancedLog;
 
 class Utils
 {
+    /**
+     * @return array<string>
+     */
+    public static function getLogFiles(): array
+    {
+        $logs = ['/var/log/syslog'];
+
+        if (file_exists('/boot/logs/syslog-previous')) {
+            // add syslog-previous to front of logs array
+            $logs[] = '/boot/logs/syslog-previous';
+        }
+
+        if (file_exists('/boot/config/rsyslog.cfg')) {
+            $syslog = parse_ini_file('/boot/config/rsyslog.cfg');
+            if ( ! empty($syslog['local_server']) && ! empty($syslog['server_folder']) && $arrayLogs = glob($syslog['server_folder'] . '/syslog-*.log', GLOB_NOSORT)) {
+                natsort($arrayLogs);
+                $logs = array_merge($logs, $arrayLogs);
+            }
+        }
+
+        return $logs;
+    }
+
     public static function logmsg(string $message): void
     {
         if ( ! defined(__NAMESPACE__ . "\PLUGIN_NAME")) {

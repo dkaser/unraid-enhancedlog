@@ -24,25 +24,10 @@ namespace EnhancedLog;
 
 $tr = $tr ?? new Translator();
 
-?>
-<link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
-<script src="/webGui/javascript/jquery.tablesorter.widgets.js"></script>
-
-<!-- Select2 code -->
-<link href="/plugins/enhanced.log/assets/select2.min.css" rel="stylesheet">
-<script src="/plugins/enhanced.log/assets/select2.min.js"></script>
-<script src="/plugins/enhanced.log/assets/widget-filter-formatter-select2.js"></script>
-
-<div>
-<input type="button" value="<?= $tr->tr("download"); ?>" onclick="getlog()">
-<input type="button" value="<?= $tr->tr("refresh"); ?>" onclick="showLog()">
-<input type="button" class="reset" value="<?= $tr->tr("reset"); ?>">
-</div>
-<?php
-
-$zip = str_replace(' ', '_', strtolower($varName ?? "")) . "-syslog-" . date('Ymd-Hi') . ".zip";
+$logs = Utils::getLogFiles();
 
 $enhanced_log_cfg = Utils::getConfig();
+$maxLines         = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
 $colors           = new Colors();
 $colors->parseConfig($enhanced_log_cfg);
 
@@ -54,13 +39,33 @@ if (in_array($theme ?? "", $themeArray)) {
 }
 
 ?>
+<link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
+<script src="/webGui/javascript/jquery.tablesorter.widgets.js"></script>
+
+<!-- Select2 code -->
+<link href="/plugins/enhanced.log/assets/select2.min.css" rel="stylesheet">
+<script src="/plugins/enhanced.log/assets/select2.min.js"></script>
+<script src="/plugins/enhanced.log/assets/widget-filter-formatter-select2.js"></script>
+
+<div>
+<select name="logLog" onchange='showLog()'>
+<?php foreach ($logs as $file) {
+    echo Utils::make_option(false, $file, basename($file));
+} ?>
+</select>
+<?= $tr->tr("max_lines"); ?>:
+<input type="number" name="logMax" value="" placeholder="<?= $maxLines; ?>">
+<input type="button" value="<?= $tr->tr("refresh"); ?>" onclick="showLog()">
+<input type="button" class="reset" value="<?= $tr->tr("reset"); ?>">
+</div>
 
 <table id='logTable' class="unraid logTable tablesorter"><tr><td><div class="spinner"></div></td></tr></table><br>
 
 <script>
 function showLog() {
-  //controlsDisabled(true);
-  $.get('/plugins/enhanced.log/include/data/log.php',function(data){
+  var log = $('select[name="logLog"]').val();
+  var maxLines = $('input[name="logMax"]').val();
+  $.post('/plugins/enhanced.log/include/data/log.php', {log: log, maxLines: maxLines}, function(data){
     clearTimeout(timers.refresh);
     $("#logTable").trigger("destroy");
     $('#logTable').html(data.html);
@@ -115,23 +120,6 @@ function showLog() {
     $('div.spinner.fixed').hide('fast');
     //controlsDisabled(false);
   }, "json");
-}
-
-function cleanUp() {
-	if (document.hasFocus()) {
-		$('input[value="Downloading..."]').val('Download').prop('disabled',false);
-		$.post('/webGui/include/Download.php',{cmd:'delete',file:'<?= $zip;?>'});
-	} else {
-		setTimeout(cleanUp,4000);
-	}
-}  
-
-function getlog() {
-	$('input[value="Download"]').val('Downloading...').prop('disabled',true);
-	$.post('/webGui/include/Download.php',{cmd:'save',source:'/var/log/syslog',file:'<?= $zip;?>'},function(zip) {
-		location = zip;
-		setTimeout(cleanUp,4000);
-	});
 }
 
 $(function() {

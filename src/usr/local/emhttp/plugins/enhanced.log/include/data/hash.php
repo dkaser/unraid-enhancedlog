@@ -11,7 +11,12 @@ try {
     $colors           = new Colors();
     $colors->parseConfig($enhanced_log_cfg);
 
-    $logReader = $logReader ?? new LogReader("/var/log/syslog");
+    $maxLines = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
+
+    $logFile  = isset($_POST['log'])      && is_string($_POST['log']) ? $_POST['log'] : "/var/log/syslog";
+    $maxLines = isset($_POST['maxLines']) && is_numeric($_POST['maxLines']) ? intval($_POST['maxLines']) : $maxLines;
+
+    $logReader = $logReader ?? new LogReader($logFile, $maxLines);
 
     $rows = "";
 

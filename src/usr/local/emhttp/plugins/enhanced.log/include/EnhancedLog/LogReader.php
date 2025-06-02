@@ -34,13 +34,18 @@ class LogReader
     /** @var array<string, LogSummary> $logSummary */
     private array $logSummary;
 
-    public function __construct(string $logFile)
+    public function __construct(string $logFile, int $maxLines = 1000)
     {
+        $validLogs = Utils::getLogFiles();
+        if ( ! in_array($logFile, $validLogs)) {
+            throw new \InvalidArgumentException("Invalid log file: {$logFile}");
+        }
+
         $this->logFile = $logFile;
 
         $this->config = Utils::getConfig();
 
-        $this->maxLines = intval(isset($this->config['LINES']) && $this->config['LINES'] != "" ? $this->config['LINES'] : 1000);
+        $this->maxLines = $maxLines;
 
         $this->colors = new Colors();
         $this->colors->parseConfig($this->config);
@@ -93,10 +98,14 @@ class LogReader
     {
         $retval     = array();
         $logContent = self::readFile($this->logFile, $this->maxLines);
-        if ((count($logContent) < $this->maxLines) && file_exists($this->logFile . ".1")) {
-            // If the log file is smaller than the max lines, try to read the rotated log file
-            $rotatedContent = self::readFile($this->logFile . ".1", $this->maxLines - count($logContent));
-            $logContent     = array_merge($rotatedContent, $logContent);
+        $rotateLog  = 1;
+        while ((count($logContent) < $this->maxLines) && $rotateLog <= 9) {
+            $rotatedFile = $this->logFile . "." . strval($rotateLog);
+            if (file_exists($rotatedFile)) {
+                $rotatedContent = self::readFile($rotatedFile, $this->maxLines - count($logContent));
+                $logContent     = array_merge($rotatedContent, $logContent);
+            }
+            $rotateLog++;
         }
 
         foreach ($logContent as $line) {

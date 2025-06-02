@@ -21,9 +21,20 @@ namespace EnhancedLog;
 
 $tr = $tr ?? new Translator();
 
+$logs             = Utils::getLogFiles();
+$enhanced_log_cfg = Utils::getConfig();
+$maxLines         = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
+
 ?>
 
 <div>
+<select name="hashLog" onchange='showLogHashes()'>
+<?php foreach ($logs as $file) {
+    echo Utils::make_option(false, $file, basename($file));
+} ?>
+</select>
+<?= $tr->tr("max_lines"); ?>:
+<input type="number" name="hashMax" value="" placeholder="<?= $maxLines; ?>">
 <input type="button" value="<?= $tr->tr("refresh"); ?>" onclick="showLogHashes()">
 <input type="button" class="resetHash" value="<?= $tr->tr("reset"); ?>">
 </div>
@@ -32,8 +43,9 @@ $tr = $tr ?? new Translator();
 
 <script>
 function showLogHashes() {
-  //controlsDisabled(true);
-  $.get('/plugins/enhanced.log/include/data/hash.php',function(data){
+  var log = $('select[name="hashLog"]').val();
+  var maxLines = $('input[name="hashMax"]').val();
+  $.post('/plugins/enhanced.log/include/data/hash.php',{log: log, maxLines: maxLines},function(data){
     clearTimeout(timers.refresh);
     $("#hashTable").trigger("destroy");
     $('#hashTable').html(data.html);
