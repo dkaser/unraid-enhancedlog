@@ -18,6 +18,12 @@ jobs:
 
       - run: echo "PLUGIN_JSON=$(jq -c . < tag/plugin/plugin.json)" >> $GITHUB_ENV
 
+      - name: Install dependencies
+        uses: "php-actions/composer@v6"
+        with:
+          dev: no
+          working_dir: "tag/src/var/lib/php/${{ fromJson(env.PLUGIN_JSON).package_name }}"
+
       - id: build_files
         run: |
           mkdir release

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+composer --working-dir src/var/lib/php/unraid-enhancedlog/ "$@"

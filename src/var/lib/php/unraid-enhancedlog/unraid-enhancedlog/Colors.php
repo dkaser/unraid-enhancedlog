@@ -1,6 +1,8 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
+
+use EDACerton\PluginUtils\Translator;
 
 /*
     Copyright 2025  Derek Kaser

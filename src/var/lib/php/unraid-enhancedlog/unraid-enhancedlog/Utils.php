@@ -1,6 +1,6 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
 
 /*
     Copyright (C) 2025  Derek Kaser
@@ -19,7 +19,7 @@ namespace EnhancedLog;
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-class Utils
+class Utils extends \EDACerton\PluginUtils\Utils
 {
     /**
      * @return array<string>
@@ -44,37 +44,6 @@ class Utils
         return $logs;
     }
 
-    public static function logmsg(string $message): void
-    {
-        if ( ! defined(__NAMESPACE__ . "\PLUGIN_NAME")) {
-            throw new \RuntimeException("PLUGIN_NAME not defined");
-        }
-
-        $timestamp = date('Y/m/d H:i:s');
-        $filename  = basename(is_string($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : "");
-        file_put_contents("/var/log/" . PLUGIN_NAME . ".log", "{$timestamp} {$filename}: {$message}" . PHP_EOL, FILE_APPEND);
-    }
-
-    public static function auto_v(string $file): string
-    {
-        global $docroot;
-        $path = $docroot . $file;
-        clearstatcache(true, $path);
-        $time    = file_exists($path) ? filemtime($path) : 'autov_fileDoesntExist';
-        $newFile = "{$file}?v=" . $time;
-
-        return $newFile;
-    }
-
-    public static function make_option(bool|string $selected, string $value, string $text, string $extra = ""): string
-    {
-        if (is_string($selected)) {
-            $selected = $selected === $value;
-        }
-
-        return "<option value='{$value}'" . ($selected ? " selected" : "") . (strlen($extra) ? " {$extra}" : "") . ">{$text}</option>";
-    }
-
     /**
      * @return array<string, string>
      */
@@ -90,18 +59,5 @@ class Utils
         $enhanced_log_cfg   = array_merge($default_log_config, $user_log_cfg);
 
         return $enhanced_log_cfg;
-    }
-
-    /**
-    * @param array<mixed> $args
-    */
-    public static function run_task(string $functionName, array $args = array()): void
-    {
-        try {
-            $reflectionMethod = new \ReflectionMethod($functionName);
-            $reflectionMethod->invokeArgs(null, $args);
-        } catch (\Throwable $e) {
-            Utils::logmsg("Caught exception in {$functionName} : " . $e->getMessage());
-        }
     }
 }

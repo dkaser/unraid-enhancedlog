@@ -1,6 +1,6 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
 
 /*
     Copyright (C) 2025  Derek Kaser
@@ -22,10 +22,5 @@ namespace EnhancedLog;
 define(__NAMESPACE__ . "\PLUGIN_ROOT", dirname(dirname(__FILE__)));
 define(__NAMESPACE__ . "\PLUGIN_NAME", "enhanced.log");
 
-foreach (glob(PLUGIN_ROOT . "/include/" . __NAMESPACE__ . "/*.php") ?: array() as $file) {
-    try {
-        require $file;
-    } catch (\Throwable $e) {
-        Utils::logmsg("Caught exception in {$file} : " . $e->getMessage());
-    }
-}
+// @phpstan-ignore requireOnce.fileNotFound
+require_once "/var/lib/php/unraid-enhancedlog/vendor/autoload.php";

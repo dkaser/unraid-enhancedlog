@@ -1,11 +1,17 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
+
+use EDACerton\PluginUtils\Translator;
 
 try {
     require_once dirname(dirname(__FILE__)) . "/common.php";
 
-    $tr = $tr ?? new Translator();
+    if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
+        throw new \RuntimeException("Common file not loaded.");
+    }
+
+    $tr = $tr ?? new Translator(PLUGIN_ROOT);
 
     $enhanced_log_cfg = Utils::getConfig();
     $colors           = new Colors();

@@ -1,6 +1,6 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
 
 /*
     Copyright (C) 2025  Derek Kaser

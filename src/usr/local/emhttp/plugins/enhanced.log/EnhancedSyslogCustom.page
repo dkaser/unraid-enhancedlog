@@ -25,7 +25,7 @@ try {
     $docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
     require_once "{$docroot}/plugins/enhanced.log/include/page.php";
 
-    echo EnhancedLog\getPage("Custom", true, array());
+    echo EDACerton\EnhancedLog\getPage("Custom", true, array());
 } catch (Throwable $e) {
     echo "An error occurred: <pre>" . print_r($e, true) . "</pre>";
 }

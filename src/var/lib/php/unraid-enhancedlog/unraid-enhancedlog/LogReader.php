@@ -1,6 +1,6 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
 
 /*
     Copyright 2015-2025, Dan Landon
@@ -36,6 +36,11 @@ class LogReader
 
     public function __construct(string $logFile, int $maxLines = 1000)
     {
+        if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
+            throw new \RuntimeException("Common file not loaded.");
+        }
+        $utils = new Utils(PLUGIN_NAME);
+
         $validLogs = Utils::getLogFiles();
         if ( ! in_array($logFile, $validLogs)) {
             throw new \InvalidArgumentException("Invalid log file: {$logFile}");
@@ -65,7 +70,7 @@ class LogReader
 
             $split = str_getcsv($line);
             if (count($split) < 2) {
-                Utils::logmsg("Invalid match line: {$line}");
+                $utils->logmsg("Invalid match line: {$line}");
                 continue;
             }
 

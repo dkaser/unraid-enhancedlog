@@ -1,6 +1,8 @@
 <?php
 
-namespace EnhancedLog;
+namespace EDACerton\EnhancedLog;
+
+use EDACerton\PluginUtils\Translator;
 
 /*
     Copyright (C) 2025  Derek Kaser
@@ -19,7 +21,11 @@ namespace EnhancedLog;
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-$tr = $tr ?? new Translator();
+if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
+    throw new \RuntimeException("Common file not loaded.");
+}
+
+$tr = $tr ?? new Translator(PLUGIN_ROOT);
 
 $logs             = Utils::getLogFiles();
 $enhanced_log_cfg = Utils::getConfig();
