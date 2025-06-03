@@ -22,7 +22,7 @@ jobs:
         uses: "php-actions/composer@v6"
         with:
           dev: no
-          working_dir: "tag/src/var/lib/php/${{ fromJson(env.PLUGIN_JSON).package_name }}"
+          working_dir: "tag/src/usr/local/php/${{ fromJson(env.PLUGIN_JSON).package_name }}"
 
       - id: build_files
         run: |

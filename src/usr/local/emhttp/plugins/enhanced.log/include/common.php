@@ -23,4 +23,4 @@ define(__NAMESPACE__ . "\PLUGIN_ROOT", dirname(dirname(__FILE__)));
 define(__NAMESPACE__ . "\PLUGIN_NAME", "enhanced.log");
 
 // @phpstan-ignore requireOnce.fileNotFound
-require_once "/var/lib/php/unraid-enhancedlog/vendor/autoload.php";
+require_once "/usr/local/php/unraid-enhancedlog/vendor/autoload.php";
