@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: php-actions/composer@v6
         with:
-          working_dir: "src/var/lib/php/${{ fromJson(env.PLUGIN_JSON).package_name }}"
+          working_dir: "src/var/lib/php/unraid-enhancedlog"
       - uses: php-actions/phpstan@v3
         with:
           version: composer
