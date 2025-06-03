@@ -1,6 +1,6 @@
 {
     "name": "dkaser/unraid-enhancedlog",
-    "description": "Utility classes",
+    "description": "Enhanced log",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "autoload": {
