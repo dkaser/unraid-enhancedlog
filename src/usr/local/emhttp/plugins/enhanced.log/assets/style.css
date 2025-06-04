@@ -5,3 +5,8 @@
 .tablesorter-filter.disabled {
     display: none;
 }
+
+table.tablesorter tbody tr td {
+    overflow-wrap: anywhere;
+    text-align: left;
+}
