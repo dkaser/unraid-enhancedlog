@@ -29,24 +29,26 @@ try {
     foreach ($logReader->getLogSummary() as $line) {
         $color = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
 
-        if (strtolower($color) !== "skip") {
-            $service = htmlspecialchars($line->getService());
-            $count   = htmlspecialchars($line->getCount());
-            $source  = htmlspecialchars($line->getSource());
-            $message = htmlspecialchars($line->getMessage());
-
-            $matchType = empty($line->getMatch()) ? "" : $colors->getColorName($line->getMatch(), $tr);
-
-            $rows .= <<<EOT
-                <tr style='background-color:{$color}'>
-                    <td>{$count}</td>
-                    <td>{$source}</td>
-                    <td>{$service}</td>
-                    <td>{$message}</td>
-                    <td>{$matchType}</td>
-                </tr>
-                EOT;
+        if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
+            continue;
         }
+
+        $service = htmlspecialchars($line->getService());
+        $count   = htmlspecialchars($line->getCount());
+        $source  = htmlspecialchars($line->getSource());
+        $message = htmlspecialchars($line->getMessage());
+
+        $matchType = empty($line->getMatch()) ? "" : $colors->getColorName($line->getMatch(), $tr);
+
+        $rows .= <<<EOT
+            <tr style='background-color:{$color}'>
+                <td>{$count}</td>
+                <td>{$source}</td>
+                <td>{$service}</td>
+                <td>{$message}</td>
+                <td>{$matchType}</td>
+            </tr>
+            EOT;
     }
 
     $output = <<<EOT
