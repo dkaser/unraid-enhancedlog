@@ -1,7 +1,7 @@
 # enhanced.log – Enhanced Syslog Plugin for Unraid
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-[![GitHub Releases](https://img.shields.io/github/v/release/unraid/unraid-enhancedlog)](https://github.com/dkaser/unraid-enhancedlog/releases)
+[![GitHub Releases](https://img.shields.io/github/v/release/dkaser/unraid-enhancedlog)](https://github.com/dkaser/unraid-enhancedlog/releases)
 [![Last Commit](https://img.shields.io/github/last-commit/dkaser/unraid-enhancedlog)](https://github.com/dkaser/unraid-enhancedlog/commits/main/)
 [![Code Style: PHP-CS-Fixer](https://img.shields.io/badge/code%20style-php--cs--fixer-brightgreen.svg)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/dkaser/unraid-enhancedlog/total)
