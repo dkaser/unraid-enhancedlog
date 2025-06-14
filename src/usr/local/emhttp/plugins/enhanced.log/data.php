@@ -39,9 +39,12 @@ $errorMiddleware = $app->addErrorMiddleware(false, true, true);
 
 $app->get("{$prefix}/files", function (Request $request, Response $response, $args) {
     $logs    = Utils::getLogFiles();
-    $payload = json_encode($logs, JSON_PRETTY_PRINT) ?: "{}";
+    $payload = json_encode($logs) ?: "{}";
     $response->getBody()->write($payload);
-    return $response->withHeader('Content-Type', 'application/json');
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
 });
 
 $app->get("{$prefix}/log", function (Request $request, Response $response, $args) {
@@ -56,6 +59,9 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
     }
 
     $maxLines = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
+    if ($maxLines < 1) {
+        $maxLines = 1000;
+    }
 
     $colors = new Colors();
     $colors->parseConfig($enhanced_log_cfg);
@@ -86,10 +92,11 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
         ];
     }
 
-    $response->getBody()->write(json_encode($payload, JSON_PRETTY_PRINT) ?: "{}");
+    $response->getBody()->write(json_encode($payload) ?: "{}");
     return $response
         ->withHeader('Content-Type', 'application/json')
-        ->withHeader('Cache-Control', 'no-store');
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
 });
 
 $app->get("{$prefix}/summary", function (Request $request, Response $response, $args) {
@@ -104,6 +111,9 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
     }
 
     $maxLines = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
+    if ($maxLines < 1) {
+        $maxLines = 1000;
+    }
 
     $colors = new Colors();
     $colors->parseConfig($enhanced_log_cfg);
@@ -132,10 +142,11 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
         ];
     }
 
-    $response->getBody()->write(json_encode($payload, JSON_PRETTY_PRINT) ?: "{}");
+    $response->getBody()->write(json_encode($payload) ?: "{}");
     return $response
         ->withHeader('Content-Type', 'application/json')
-        ->withHeader('Cache-Control', 'no-store');
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
 });
 
 $app->run();
