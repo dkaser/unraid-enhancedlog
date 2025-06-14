@@ -178,7 +178,7 @@ function getDatatableConfig(url, refreshText, tableName) {
         },
          "createdRow": function( row, data, dataIndex){
                 if( data["color"] != ""){
-                    $(row).css({ "background-color": data["color"] });
+                    row.style.backgroundColor = data.color;
                 }
             }
     };
@@ -260,7 +260,7 @@ function getSummaryConfig(url, refreshText, tableName) {
         },
          "createdRow": function( row, data, dataIndex){
                 if( data["color"] != ""){
-                    $(row).css({ "background-color": data["color"] });
+                    row.style.backgroundColor = data.color;
                 }
             }
     };

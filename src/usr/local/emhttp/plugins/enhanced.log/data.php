@@ -87,7 +87,9 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
     }
 
     $response->getBody()->write(json_encode($payload, JSON_PRETTY_PRINT) ?: "{}");
-    return $response->withHeader('Content-Type', 'application/json');
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store');
 });
 
 $app->get("{$prefix}/summary", function (Request $request, Response $response, $args) {
@@ -131,7 +133,9 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
     }
 
     $response->getBody()->write(json_encode($payload, JSON_PRETTY_PRINT) ?: "{}");
-    return $response->withHeader('Content-Type', 'application/json');
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store');
 });
 
 $app->run();
