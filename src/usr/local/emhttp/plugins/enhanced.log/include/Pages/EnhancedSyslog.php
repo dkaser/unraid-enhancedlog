@@ -46,12 +46,12 @@ if (in_array($theme ?? "", $themeArray)) {
 ?>
 
 <script>
-const logFiles = {
-    <?php foreach ($logs as $file) { ?>
-        "<?= basename($file); ?>": "<?= $file; ?>",
-    <?php } ?>
-};
+const logFiles = <?= json_encode(
+    array_combine(array_map('basename', $logs), $logs),
+    JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+); ?>;
 </script>
+
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
 <script src="/plugins/enhanced.log/assets/datatables.min.js"></script>
 <script src="/plugins/enhanced.log/assets/luxon.min.js"></script>

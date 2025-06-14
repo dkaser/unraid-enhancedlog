@@ -35,7 +35,7 @@ $tr = $tr ?? new Translator(PLUGIN_ROOT);
 
 $app = AppFactory::create();
 $app->addRoutingMiddleware();
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware = $app->addErrorMiddleware(false, true, true);
 
 $app->get("{$prefix}/files", function (Request $request, Response $response, $args) {
     $logs    = Utils::getLogFiles();
@@ -45,12 +45,16 @@ $app->get("{$prefix}/files", function (Request $request, Response $response, $ar
 });
 
 $app->get("{$prefix}/log", function (Request $request, Response $response, $args) {
-    file_put_contents("/var/log/enhanced.log-error.log", "Handling request" . PHP_EOL, FILE_APPEND);
     $body = (array) $request->getQueryParams();
 
     $enhanced_log_cfg = Utils::getConfig();
 
-    $logFile  = isset($body['log']) && is_string($body['log']) ? $body['log'] : "/var/log/syslog";
+    if ( ! empty($body['log']) && in_array($body['log'], Utils::getLogFiles(), true)) {
+        $logFile = $body['log'];
+    } else {
+        $logFile = "/var/log/syslog";
+    }
+
     $maxLines = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
 
     $colors = new Colors();
@@ -87,12 +91,16 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
 });
 
 $app->get("{$prefix}/summary", function (Request $request, Response $response, $args) {
-    file_put_contents("/var/log/enhanced.log-error.log", "Handling request" . PHP_EOL, FILE_APPEND);
     $body = (array) $request->getQueryParams();
 
     $enhanced_log_cfg = Utils::getConfig();
 
-    $logFile  = isset($body['log']) && is_string($body['log']) ? $body['log'] : "/var/log/syslog";
+    if ( ! empty($body['log']) && in_array($body['log'], Utils::getLogFiles(), true)) {
+        $logFile = $body['log'];
+    } else {
+        $logFile = "/var/log/syslog";
+    }
+
     $maxLines = intval(isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
 
     $colors = new Colors();

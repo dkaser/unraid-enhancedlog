@@ -83,10 +83,7 @@ DataTable.feature.register('logSelect', function (settings, opts) {
     toolbar.appendChild(logSelect);
     
     logSelect.addEventListener('change', function (e) {
-        console.log('Log changed to: ' + e.target.value);
-        console.log('Base URL: ' + opts.baseURL);
-        const newUrl = opts.baseURL + '?log=' + e.target.value;
-        console.log('New URL: ' + newUrl);
+        const newUrl = opts.baseURL + '?log=' + encodeURIComponent(e.target.value);
         settings.api.ajax.url(newUrl).load();
     });
 
