@@ -4,6 +4,6 @@
     "author": "Derek Kaser",
     "min": "7.0.0",
     "icon": "align-left",
-    "support": "https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/",
+    "support": "https://forums.unraid.net/topic/191178-plugin-enhanced-log-advanced-syslog-viewer-for-unraid/",
     "launch": "Tools/EnhancedSyslog"
 }
