@@ -55,11 +55,13 @@ const logFiles = <?= json_encode(
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
 <script src="/plugins/enhanced.log/assets/datatables.min.js"></script>
 <script src="/plugins/enhanced.log/assets/luxon.min.js"></script>
+<script src="/plugins/enhanced.log/assets/flatpickr.min.js"></script>
+<link rel="stylesheet" href="/plugins/enhanced.log/assets/flatpickr.min.css">
+
 <script src="/plugins/enhanced.log/assets/enhancedlog.js"></script>
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/datatables.min.css">
 
-<script src="/plugins/enhanced.log/assets/flatpickr.min.js"></script>
-<link rel="stylesheet" href="/plugins/enhanced.log/assets/flatpickr.min.css">
+
 
 <table id='logTable' class="stripe compact">
     <thead>
