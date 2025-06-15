@@ -72,7 +72,8 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
     $payload   = array();
 
     foreach ($logReader->getLogLines() as $sequence => $line) {
-        $color = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
+        $color     = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
+        $textColor = empty($line->getMatch()) ? "" : $colors->getTextColor($line->getMatch());
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
@@ -88,7 +89,8 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
             'source'        => $line->getSource(),
             'message'       => $line->getMessage(),
             'matchType'     => $matchType,
-            'color'         => $color
+            'color'         => $color,
+            'textColor'     => $textColor
         ];
     }
 
@@ -124,7 +126,8 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
     $payload   = array();
 
     foreach ($logReader->getLogSummary() as $line) {
-        $color = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
+        $color     = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
+        $textColor = empty($line->getMatch()) ? "" : $colors->getTextColor($line->getMatch());
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
@@ -138,7 +141,8 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
             'source'    => $line->getSource(),
             'message'   => $line->getMessage(),
             'matchType' => $matchType,
-            'color'     => $color
+            'color'     => $color,
+            'textColor' => $textColor
         ];
     }
 

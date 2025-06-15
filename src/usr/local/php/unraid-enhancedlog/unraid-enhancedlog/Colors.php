@@ -3,6 +3,7 @@
 namespace EDACerton\EnhancedLog;
 
 use EDACerton\PluginUtils\Translator;
+use Tomloprod\Colority\Support\Facades\Colority;
 
 /*
     Copyright 2025  Derek Kaser
@@ -27,6 +28,23 @@ class Colors
      * @var array<string, string>
      */
     private array $colors = [
+        'error'         => '',
+        'minor issue'   => '',
+        'lime tech'     => '',
+        'array'         => '',
+        'system'        => '',
+        'file system'   => '',
+        'drive related' => '',
+        'network'       => '',
+        'login'         => '',
+        'emhttp'        => '',
+        'other'         => '',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    private array $textColors = [
         'error'         => '',
         'minor issue'   => '',
         'lime tech'     => '',
@@ -74,10 +92,20 @@ class Colors
         }
     }
 
+    public function getTextColor(string $colorName): string
+    {
+        if (array_key_exists($colorName, $this->textColors)) {
+            return $this->textColors[$colorName];
+        } else {
+            throw new \Exception("Color not found: " . $colorName);
+        }
+    }
+
     public function setColor(string $colorName, string $color): void
     {
         if (array_key_exists($colorName, $this->colors)) {
-            $this->colors[$colorName] = $color;
+            $this->colors[$colorName]     = $color;
+            $this->textColors[$colorName] = $this->calcTextColor($color);
         } else {
             throw new \Exception("Color not found: " . $colorName);
         }
@@ -99,7 +127,7 @@ class Colors
                 return "";
             }
 
-            return "<span class='status'><span style='background-color:{$this->colors[$colorName]}; font-size: {$font_size}'>&nbsp;" . $tr->tr($this->translations[$colorName]) . "&nbsp;</span>&nbsp;&nbsp;&nbsp;</span>";
+            return "<span class='status'><span style='background-color:{$this->colors[$colorName]}; color:{$this->textColors[$colorName]}; font-size: {$font_size}'>&nbsp;" . $tr->tr($this->translations[$colorName]) . "&nbsp;</span>&nbsp;&nbsp;&nbsp;</span>";
         } else {
             throw new \Exception("Color not found: " . $colorName);
         }
@@ -153,5 +181,28 @@ class Colors
         if ($config['OTHER'] == "yes") {
             $this->setColor("other", $config['OTHER_CLR']);
         }
+    }
+
+    private function calcTextColor(string $color): string
+    {
+        if ( ! str_starts_with($color, '#')) {
+            $color = strtolower($color);
+            if ( ! array_key_exists($color, CssColors::Colors)) {
+                return "";
+            }
+
+            $color = CssColors::Colors[$color];
+        }
+
+        $hexColor = Colority::fromHex($color);
+
+        [$baseH, $baseS, $baseL] = $hexColor->toHsl()->getArrayValueColor();
+
+        $possibleColors = array();
+
+        $possibleColors[] = Colority::fromHsl([$baseH, $baseS, 80]);
+        $possibleColors[] = Colority::fromHsl([$baseH, $baseS, 20]);
+
+        return $hexColor->getBestForegroundColor($possibleColors)->toHex()->getValueColor();
     }
 }

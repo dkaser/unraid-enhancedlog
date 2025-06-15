@@ -172,6 +172,9 @@ function getDatatableConfig(url, refreshText, tableName) {
                 if( data["color"] != ""){
                     row.style.backgroundColor = data.color;
                 }
+                if( data["textColor"] != ""){
+                    row.style.color = data.textColor;
+                }
             }
     };
 }
@@ -249,6 +252,9 @@ function getSummaryConfig(url, refreshText, tableName) {
          "createdRow": function( row, data, dataIndex){
                 if( data["color"] != ""){
                     row.style.backgroundColor = data.color;
+                }
+                if( data["textColor"] != ""){
+                    row.style.color = data.textColor;
                 }
             }
     };
