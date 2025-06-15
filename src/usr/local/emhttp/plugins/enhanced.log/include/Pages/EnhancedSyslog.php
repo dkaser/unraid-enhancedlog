@@ -57,6 +57,8 @@ const logFiles = <?= json_encode(
 <script src="/plugins/enhanced.log/assets/luxon.min.js"></script>
 <script src="/plugins/enhanced.log/assets/enhancedlog.js"></script>
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/datatables.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <table id='logTable' class="stripe compact">
     <thead>
