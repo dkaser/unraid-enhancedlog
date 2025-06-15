@@ -132,6 +132,10 @@ function getDatatableConfig(url, refreshText, tableName) {
                         icon: 'search'
                     }]
                 }
+            },
+            {
+                targets: 3,
+                className: 'overflow-anywhere'
             }
         ],
         paging: true,
@@ -223,6 +227,10 @@ function getSummaryConfig(url, refreshText, tableName) {
                         icon: 'search'
                     }]
                 }
+            },
+            {
+                targets: 3,
+                className: 'overflow-anywhere'
             }
         ],
         paging: true,
