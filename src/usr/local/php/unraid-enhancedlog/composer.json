@@ -30,6 +30,7 @@
     "require": {
         "edacerton/plugin-utils": "^1.0",
         "slim/psr7": "^1.7",
-        "slim/slim": "4.*"
+        "slim/slim": "4.*",
+        "tomloprod/colority": "^1.1"
     }
 }

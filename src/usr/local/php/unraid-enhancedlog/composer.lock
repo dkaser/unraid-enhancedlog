@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "346063d50a0b15f3c2e13f52556b3141",
+    "content-hash": "367ef2b1a7906ec20b991ceed1f4bf8e",
     "packages": [
         {
             "name": "edacerton/plugin-utils",
@@ -796,6 +796,68 @@
                 }
             ],
             "time": "2025-01-02T08:10:11+00:00"
+        },
+        {
+            "name": "tomloprod/colority",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomloprod/colority.git",
+                "reference": "434bfee503c699cc9c45aa7aaf8be4db7b6a64aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomloprod/colority/zipball/434bfee503c699cc9c45aa7aaf8be4db7b6a64aa",
+                "reference": "434bfee503c699cc9c45aa7aaf8be4db7b6a64aa",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.2.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.22.1",
+                "pestphp/pest": "^3.8.2",
+                "pestphp/pest-plugin-type-coverage": "^3.5.0",
+                "rector/rector": "^1.0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Support/ColorityAlias.php"
+                ],
+                "psr-4": {
+                    "Tomloprod\\Colority\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomás López",
+                    "email": "tomloprod@gmail.com"
+                }
+            ],
+            "description": "Colority is a lightweight PHP library designed to handle color transformations, validations and manipulations with ease.",
+            "keywords": [
+                "colors",
+                "conversion-utiliy",
+                "utility",
+                "wcag-contrast"
+            ],
+            "support": {
+                "issues": "https://github.com/tomloprod/colority/issues",
+                "source": "https://github.com/tomloprod/colority/tree/v1.1.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/tomloprod",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-05-23T20:38:44+00:00"
         }
     ],
     "packages-dev": [
