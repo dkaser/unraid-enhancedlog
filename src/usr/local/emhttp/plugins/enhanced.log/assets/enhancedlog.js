@@ -155,7 +155,12 @@ function getDatatableConfig(url, refreshText, tableName) {
                             dt.columns().ccSearchClear();
                             dt.draw();
                         }
-                    }
+                    },
+                    {
+                        extend: 'csv',
+                        text: 'Download'
+                    },
+                    "copy"
                 ],
                 logSelect: {
                     baseURL: url
@@ -238,7 +243,12 @@ function getSummaryConfig(url, refreshText, tableName) {
                             dt.columns().ccSearchClear();
                             dt.draw();
                         }
-                    }
+                    },
+                    {
+                        extend: 'csv',
+                        text: 'Download'
+                    },
+                    "copy"
                 ],
                 logSelect: {
                     baseURL: url
