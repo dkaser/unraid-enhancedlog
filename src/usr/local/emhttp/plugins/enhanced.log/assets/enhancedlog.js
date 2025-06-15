@@ -231,8 +231,6 @@ function getSummaryConfig(url, refreshText, tableName) {
                     {
                         text: "Clear Filters",
                         action: function ( e, dt, node, config ) {
-                            minDate[dt.settings()[0].sTableId].val(null);
-                            maxDate[dt.settings()[0].sTableId].val(null);
                             dt.search('');
                             dt.columns().ccSearchClear();
                             dt.draw();
