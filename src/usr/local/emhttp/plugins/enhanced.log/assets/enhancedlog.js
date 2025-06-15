@@ -137,6 +137,7 @@ function getDatatableConfig(url, refreshText, tableName) {
         paging: true,
         pageLength: 50,
         ordering: true,
+        stateSave: true,
         layout: {
             topStart: {
                 buttons: [
@@ -227,6 +228,7 @@ function getSummaryConfig(url, refreshText, tableName) {
         paging: true,
         pageLength: 50,
         ordering: true,
+        stateSave: true,
         layout: {
             topStart: {
                 buttons: [
