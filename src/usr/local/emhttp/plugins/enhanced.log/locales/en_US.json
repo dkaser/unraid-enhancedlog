@@ -16,6 +16,10 @@
     "match": "Match Type",
     "max_lines": "Max Lines",
     "count": "Count",
+    "log": "Log",
+    "from": "From",
+    "to": "To",
+    "clear_filters": "Clear Filters",
     "configuration": {
         "syslog_config": "Syslog Configuration",
         "show_all_lines": "Show All Lines in Log",

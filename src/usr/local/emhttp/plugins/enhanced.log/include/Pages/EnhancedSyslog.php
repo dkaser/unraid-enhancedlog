@@ -52,6 +52,11 @@ const logFiles = <?= json_encode(
 ); ?>;
 </script>
 
+<script src="/plugins/open.files/assets/translate.js"></script>
+<script>
+    const translator = new Translator("/plugins/enhanced.log/");
+</script>
+
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
 <script src="/plugins/enhanced.log/assets/datatables.min.js"></script>
 <script src="/plugins/enhanced.log/assets/luxon.min.js"></script>
@@ -60,8 +65,6 @@ const logFiles = <?= json_encode(
 
 <script src="/plugins/enhanced.log/assets/enhancedlog.js"></script>
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/datatables.min.css">
-
-
 
 <table id='logTable' class="stripe compact">
     <thead>
@@ -80,8 +83,10 @@ const logFiles = <?= json_encode(
 </table>
 
 <script>
-$(document).ready( function () {
-    $('#logTable').DataTable(getDatatableConfig('/plugins/enhanced.log/data.php/log', '<?= $tr->tr("refresh"); ?>', 'log'));
+$(document).ready( async function () {
+    await translator.init();
+    $('#logTable').DataTable(getDatatableConfig('/plugins/enhanced.log/data.php/log'));
+    $('#summaryTable').DataTable(getSummaryConfig('/plugins/enhanced.log/data.php/summary'));
 } );
 
 <?php foreach ($colors->getColors() as $color) { ?>
