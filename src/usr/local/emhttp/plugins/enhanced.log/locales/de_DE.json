@@ -16,6 +16,10 @@
     "match": "Übereinstimmungstyp",
     "max_lines": "Maximale Zeilen",
     "count": "Anzahl",
+    "log": "Protokoll",
+    "from": "Von",
+    "to": "Bis",
+    "clear_filters": "Filter löschen",
     "configuration": {
         "syslog_config": "Syslog-Konfiguration",
         "show_all_lines": "Alle Zeilen im Log anzeigen",

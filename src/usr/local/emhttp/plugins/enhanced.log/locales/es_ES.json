@@ -16,6 +16,10 @@
     "match": "Tipo de coincidencia",
     "max_lines": "Líneas máximas",
     "count": "Contar",
+    "log": "Registro",
+    "from": "De",
+    "to": "A",
+    "clear_filters": "Borrar filtros",
     "configuration": {
         "syslog_config": "Configuración de Syslog",
         "show_all_lines": "Mostrar todas las líneas en el registro",

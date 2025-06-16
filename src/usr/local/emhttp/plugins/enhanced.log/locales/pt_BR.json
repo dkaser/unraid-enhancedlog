@@ -16,6 +16,10 @@
     "match": "Tipo de correspondência",
     "max_lines": "Linhas Máximas",
     "count": "Contagem",
+    "log": "Registro",
+    "from": "De",
+    "to": "Para",
+    "clear_filters": "Limpar filtros",
     "configuration": {
         "syslog_config": "Configuração do Syslog",
         "show_all_lines": "Mostrar Todas as Linhas no Log",

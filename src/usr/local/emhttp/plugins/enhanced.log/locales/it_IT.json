@@ -16,6 +16,10 @@
     "match": "Tipo di corrispondenza",
     "max_lines": "Righe massime",
     "count": "Conteggio",
+    "log": "Registro",
+    "from": "Da",
+    "to": "A",
+    "clear_filters": "Cancella filtri",
     "configuration": {
         "syslog_config": "Configurazione Syslog",
         "show_all_lines": "Mostra tutte le righe nel log",

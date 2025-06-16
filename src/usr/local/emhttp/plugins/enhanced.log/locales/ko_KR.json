@@ -16,6 +16,10 @@
     "match": "일치 유형",
     "max_lines": "최대 줄 수",
     "count": "개수",
+    "log": "로그",
+    "from": "발신",
+    "to": "수신",
+    "clear_filters": "필터 초기화",
     "configuration": {
         "syslog_config": "Syslog 구성",
         "show_all_lines": "로그의 모든 줄 표시",

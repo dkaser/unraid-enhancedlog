@@ -16,6 +16,10 @@
     "match": "Matchningstyp",
     "max_lines": "Maximalt antal rader",
     "count": "Antal",
+    "log": "Logg",
+    "from": "Från",
+    "to": "Till",
+    "clear_filters": "Rensa filter",
     "configuration": {
         "syslog_config": "Syslog-konfiguration",
         "show_all_lines": "Visa alla rader i loggen",

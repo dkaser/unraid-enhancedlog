@@ -16,6 +16,10 @@
     "match": "Тип збігу",
     "max_lines": "Максимальна кількість рядків",
     "count": "Кількість",
+    "log": "Журнал",
+    "from": "Від",
+    "to": "До",
+    "clear_filters": "Очистити фільтри",
     "configuration": {
         "syslog_config": "Конфігурація Syslog",
         "show_all_lines": "Показати всі рядки в журналі",

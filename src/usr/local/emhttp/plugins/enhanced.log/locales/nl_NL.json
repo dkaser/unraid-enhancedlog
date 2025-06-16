@@ -16,6 +16,10 @@
     "match": "Overeenkomsttype",
     "max_lines": "Maximaal aantal regels",
     "count": "Aantal",
+    "log": "Logboek",
+    "from": "Van",
+    "to": "Naar",
+    "clear_filters": "Filters wissen",
     "configuration": {
         "syslog_config": "Syslog-configuratie",
         "show_all_lines": "Alle regels in log weergeven",

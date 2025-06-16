@@ -16,6 +16,10 @@
     "match": "Matchtype",
     "max_lines": "Maks antall linjer",
     "count": "Antall",
+    "log": "Logg",
+    "from": "Fra",
+    "to": "Til",
+    "clear_filters": "Fjern filtre",
     "configuration": {
         "syslog_config": "Syslog-konfigurasjon",
         "show_all_lines": "Vis alle linjer i loggen",

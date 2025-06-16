@@ -16,6 +16,10 @@
     "match": "匹配类型",
     "max_lines": "最大行数",
     "count": "计数",
+    "log": "日志",
+    "from": "来自",
+    "to": "到",
+    "clear_filters": "清除筛选器",
     "configuration": {
         "syslog_config": "Syslog 配置",
         "show_all_lines": "显示日志中的所有行",

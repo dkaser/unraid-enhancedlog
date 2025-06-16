@@ -16,6 +16,10 @@
     "match": "Typ dopasowania",
     "max_lines": "Maksymalna liczba wierszy",
     "count": "Liczba",
+    "log": "Dziennik",
+    "from": "Od",
+    "to": "Do",
+    "clear_filters": "Wyczyść filtry",
     "configuration": {
         "syslog_config": "Konfiguracja Syslog",
         "show_all_lines": "Pokaż wszystkie linie w logu",

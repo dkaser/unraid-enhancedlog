@@ -16,6 +16,10 @@
     "match": "一致タイプ",
     "max_lines": "最大行数",
     "count": "件数",
+    "log": "ログ",
+    "from": "送信元",
+    "to": "送信先",
+    "clear_filters": "フィルターをクリア",
     "configuration": {
         "syslog_config": "Syslog設定",
         "show_all_lines": "ログの全行を表示",

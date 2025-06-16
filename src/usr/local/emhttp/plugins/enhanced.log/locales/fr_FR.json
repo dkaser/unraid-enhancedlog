@@ -16,6 +16,10 @@
     "match": "Type de correspondance",
     "max_lines": "Nombre maximal de lignes",
     "count": "Nombre",
+    "log": "Journal",
+    "from": "De",
+    "to": "À",
+    "clear_filters": "Effacer les filtres",
     "configuration": {
         "syslog_config": "Configuration Syslog",
         "show_all_lines": "Afficher toutes les lignes du journal",
