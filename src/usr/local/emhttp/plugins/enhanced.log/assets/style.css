@@ -13,6 +13,7 @@ table.tablesorter tbody tr td {
 
 .overflow-anywhere {
     overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 button.select2-selection__choice__remove,
@@ -58,4 +59,8 @@ span.dtcc-button-icon svg {
 
 div.dt-button-info {
     color: black
+}
+
+input.flatpickr-input {
+    width: 150px;
 }
