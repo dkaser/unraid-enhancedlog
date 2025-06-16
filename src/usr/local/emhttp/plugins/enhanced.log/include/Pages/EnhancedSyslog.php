@@ -52,7 +52,7 @@ const logFiles = <?= json_encode(
 ); ?>;
 </script>
 
-<script src="/plugins/open.files/assets/translate.js"></script>
+<script src="/plugins/enhanced.log/assets/translate.js"></script>
 <script>
     const translator = new Translator("/plugins/enhanced.log/");
 </script>
