@@ -44,10 +44,3 @@ $tr = $tr ?? new Translator(PLUGIN_ROOT);
     <tfoot>
     </tfoot>
 </table>
-
-<script>
-$(document).ready( function () {
-    $('#summaryTable').DataTable(getSummaryConfig('/plugins/enhanced.log/data.php/summary', '<?= $tr->tr("refresh"); ?>', 'summary'));
-} );
-
-</script>
