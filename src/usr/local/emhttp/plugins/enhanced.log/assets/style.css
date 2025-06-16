@@ -48,7 +48,7 @@ div.flatpickr-calendar {
 }
 
 div.dtcc-dropdown * {
-    color: black
+    color: black;
 }
 
 span.dtcc-button-icon svg {
@@ -58,7 +58,7 @@ span.dtcc-button-icon svg {
 }
 
 div.dt-button-info {
-    color: black
+    color: black;
 }
 
 input.flatpickr-input {
