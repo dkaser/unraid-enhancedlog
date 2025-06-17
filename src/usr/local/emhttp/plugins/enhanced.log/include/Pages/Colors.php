@@ -69,7 +69,7 @@ $(document).ready( async function () {
     colorInputs.forEach(input => {
         const sampleSpan = document.getElementById(input.name + '_SAMPLE');
         if (sampleSpan) {
-            updateSample(input, sampleSpan);
+            updateSample(input);
         }
     });
 } );
