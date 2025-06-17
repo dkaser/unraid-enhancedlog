@@ -153,4 +153,24 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
         ->withStatus(200);
 });
 
+$app->get("{$prefix}/locales", function (Request $request, Response $response, $args) {
+    // Get the list of supported locales from /locales (each locale is a JSON file)
+    $localesDir = PLUGIN_ROOT . '/locales';
+    $files      = scandir($localesDir);
+
+    foreach ($files as $key => $file) {
+        if ( ! is_file($localesDir . '/' . $file) || pathinfo($file, PATHINFO_EXTENSION) !== 'json') {
+            unset($files[$key]);
+        } else {
+            $files[$key] = basename($file, '.json'); // Store only the locale name without extension
+        }
+    }
+
+    $response->getBody()->write(json_encode($files) ?: "[]");
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
+});
+
 $app->run();
