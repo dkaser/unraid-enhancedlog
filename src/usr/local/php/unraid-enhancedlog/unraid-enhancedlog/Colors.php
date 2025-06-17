@@ -104,7 +104,7 @@ class Colors
     public function setColor(string $colorName, string $color): void
     {
         if (array_key_exists($colorName, $this->colors)) {
-            $this->colors[$colorName]     = $color;
+            $this->colors[$colorName]     = $this->colorToHex($color);
             $this->textColors[$colorName] = $this->calcTextColor($color);
         } else {
             throw new \Exception("Color not found: " . $colorName);
@@ -136,63 +136,56 @@ class Colors
     /**
      * @param array<string, string> $config
      */
-    public function parseConfig(array $config): void
+    public function parseConfig(array $config, bool $settings = false): void
     {
-        if ($config['ERRORS'] == "yes") {
+        if ($config['ERRORS'] == "yes" || $settings) {
             $this->setColor("error", $config['ERRORS_CLR']);
         }
 
-        if ($config['MINOR_ISSUES'] == "yes") {
+        if ($config['MINOR_ISSUES'] == "yes" || $settings) {
             $this->setColor("minor issue", $config['MINOR_ISSUES_CLR']);
         }
 
-        if ($config['LIME_TECH'] == "yes") {
+        if ($config['LIME_TECH'] == "yes" || $settings) {
             $this->setColor("lime tech", $config['LIME_TECH_CLR']);
         }
 
-        if ($config['ARRAY'] == "yes") {
+        if ($config['ARRAY'] == "yes" || $settings) {
             $this->setColor("array", $config['ARRAY_CLR']);
         }
 
-        if ($config['SYSTEM'] == "yes") {
+        if ($config['SYSTEM'] == "yes" || $settings) {
             $this->setColor("system", $config['SYSTEM_CLR']);
         }
 
-        if ($config['FILE_SYSTEM'] == "yes") {
+        if ($config['FILE_SYSTEM'] == "yes" || $settings) {
             $this->setColor("file system", $config['FILE_SYSTEM_CLR']);
         }
 
-        if ($config['DRIVE_RELATED'] == "yes") {
+        if ($config['DRIVE_RELATED'] == "yes" || $settings) {
             $this->setColor("drive related", $config['DRIVE_RELATED_CLR']);
         }
 
-        if ($config['NETWORK'] == "yes") {
+        if ($config['NETWORK'] == "yes" || $settings) {
             $this->setColor("network", $config['NETWORK_CLR']);
         }
 
-        if ($config['LOGIN'] == "yes") {
+        if ($config['LOGIN'] == "yes" || $settings) {
             $this->setColor("login", $config['LOGIN_CLR']);
         }
 
-        if ($config['EMHTTP'] == "yes") {
+        if ($config['EMHTTP'] == "yes" || $settings) {
             $this->setColor("emhttp", $config['EMHTTP_CLR']);
         }
 
-        if ($config['OTHER'] == "yes") {
+        if ($config['OTHER'] == "yes" || $settings) {
             $this->setColor("other", $config['OTHER_CLR']);
         }
     }
 
     private function calcTextColor(string $color): string
     {
-        if ( ! str_starts_with($color, '#')) {
-            $color = strtolower($color);
-            if ( ! array_key_exists($color, CssColors::Colors)) {
-                return "";
-            }
-
-            $color = CssColors::Colors[$color];
-        }
+        $color = $this->colorToHex($color);
 
         $hexColor = Colority::fromHex($color);
 
@@ -204,5 +197,18 @@ class Colors
         $possibleColors[] = Colority::fromHsl([$baseH, $baseS, 20]);
 
         return $hexColor->getBestForegroundColor($possibleColors)->toHex()->getValueColor();
+    }
+
+    private function colorToHex(string $color): string
+    {
+        if ( ! str_starts_with($color, '#')) {
+            $color = strtolower($color);
+            if ( ! array_key_exists($color, CssColors::Colors)) {
+                return "#000000";
+            }
+
+            $color = CssColors::Colors[$color];
+        }
+        return $color;
     }
 }

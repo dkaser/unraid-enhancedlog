@@ -54,7 +54,7 @@ const logFiles = <?= json_encode(
 
 <script src="/plugins/enhanced.log/assets/translate.js"></script>
 <script>
-    const translator = new Translator("/plugins/enhanced.log/");
+    const translator = new Translator("/plugins/enhanced.log");
 </script>
 
 <link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style.css">
