@@ -19,6 +19,7 @@
     "log": "Log",
     "from": "From",
     "to": "To",
+    "sample": "Sample",
     "clear_filters": "Clear Filters",
     "configuration": {
         "syslog_config": "Syslog Configuration",
