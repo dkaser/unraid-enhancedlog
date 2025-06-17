@@ -166,7 +166,7 @@ $app->get("{$prefix}/locales", function (Request $request, Response $response, $
         }
     }
 
-    $response->getBody()->write(json_encode($files) ?: "['a']");
+    $response->getBody()->write(json_encode($files) ?: "[]");
     return $response
         ->withHeader('Content-Type', 'application/json')
         ->withHeader('Cache-Control', 'no-store')
