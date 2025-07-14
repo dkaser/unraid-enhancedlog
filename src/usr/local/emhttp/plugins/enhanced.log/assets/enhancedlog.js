@@ -288,7 +288,7 @@ function getSummaryConfig(url) {
     ordering: true,
     stateSave: true,
     layout: {
-      topStart: {
+      top2Start: {
         buttons: [
           {
             text: translator.tr("refresh"),
@@ -301,13 +301,24 @@ function getSummaryConfig(url) {
             text: translator.tr("download"),
           },
           "copy",
+        ],
+        logSelect: {
+          baseURL: url,
+        },
+        pageLength: {
+          menu: [25, 50, 100, 200, -1],
+        },
+      },
+      top2End: {
+        dateRange: {},
+      },
+      topStart: {
+        buttons: [
           {
-            extend: "spacer",
-            text: translator.tr("filters") + ":",
-          },
-          {
-            text: translator.tr("clear"),
+            text: translator.tr("clear_filters"),
             action: function (e, dt, node, config) {
+              minDate[dt.settings()[0].sTableId].clear();
+              maxDate[dt.settings()[0].sTableId].clear();
               dt.search("");
               dt.columns().ccSearchClear();
               dt.draw();
@@ -323,14 +334,8 @@ function getSummaryConfig(url) {
             },
           },
         ],
-        logSelect: {
-          baseURL: url,
-        },
-        pageLength: {
-          menu: [25, 50, 100, 200, -1],
-        },
       },
-      topEnd: null,
+      topEnd: {},
     },
     createdRow: function (row, data, dataIndex) {
       if (data["color"] != "") {
