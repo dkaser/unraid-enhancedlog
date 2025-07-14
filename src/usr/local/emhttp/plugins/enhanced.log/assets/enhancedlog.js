@@ -90,6 +90,21 @@ DataTable.feature.register("logSelect", function (settings, opts) {
   return toolbar;
 });
 
+const columnSaving = {
+  columns: {
+    search: true,
+    visible: false,
+  },
+  length: true,
+  order: true,
+  paging: true,
+  scroller: false,
+  search: false,
+  searchBuilder: false,
+  searchPanes: false,
+  select: true,
+};
+
 function getDatatableConfig(url) {
   return {
     ajax: {
@@ -161,22 +176,12 @@ function getDatatableConfig(url) {
     ordering: true,
     stateSave: true,
     layout: {
-      topStart: {
+      top2Start: {
         buttons: [
           {
             text: translator.tr("refresh"),
             action: function (e, dt, node, config) {
               dt.ajax.reload();
-            },
-          },
-          {
-            text: translator.tr("clear_filters"),
-            action: function (e, dt, node, config) {
-              minDate[dt.settings()[0].sTableId].clear();
-              maxDate[dt.settings()[0].sTableId].clear();
-              dt.search("");
-              dt.columns().ccSearchClear();
-              dt.draw();
             },
           },
           {
@@ -192,9 +197,33 @@ function getDatatableConfig(url) {
           menu: [25, 50, 100, 200, -1],
         },
       },
-      topEnd: {
+      top2End: {
         dateRange: {},
       },
+      topStart: {
+        buttons: [
+          {
+            text: translator.tr("clear_filters"),
+            action: function (e, dt, node, config) {
+              minDate[dt.settings()[0].sTableId].clear();
+              maxDate[dt.settings()[0].sTableId].clear();
+              dt.search("");
+              dt.columns().ccSearchClear();
+              dt.draw();
+            },
+          },
+          { extend: "createState", text: translator.tr("save") },
+          {
+            extend: "savedStates",
+            config: {
+              creationModal: true,
+              toggle: columnSaving,
+              saveState: columnSaving,
+            },
+          },
+        ],
+      },
+      topEnd: {},
     },
     createdRow: function (row, data, dataIndex) {
       if (data["color"] != "") {
@@ -268,18 +297,31 @@ function getSummaryConfig(url) {
             },
           },
           {
-            text: translator.tr("clear_filters"),
+            extend: "csv",
+            text: translator.tr("download"),
+          },
+          "copy",
+          {
+            extend: "spacer",
+            text: translator.tr("filters") + ":",
+          },
+          {
+            text: translator.tr("clear"),
             action: function (e, dt, node, config) {
               dt.search("");
               dt.columns().ccSearchClear();
               dt.draw();
             },
           },
+          { extend: "createState", text: translator.tr("save") },
           {
-            extend: "csv",
-            text: translator.tr("download"),
+            extend: "savedStates",
+            config: {
+              creationModal: true,
+              toggle: columnSaving,
+              saveState: columnSaving,
+            },
           },
-          "copy",
         ],
         logSelect: {
           baseURL: url,

@@ -64,3 +64,22 @@ div.dt-button-info {
 input.flatpickr-input {
     width: 150px;
 }
+
+div.dt-button-split button {
+    min-width: 0;
+    max-width: none;
+    margin: 0 0 0 0;
+    
+    background: none;
+}
+
+div.dtsr-creation {
+    top: 20% !important;
+}
+div.dt-layout-row {
+    margin: 0 0 0 0 !important;
+}
+
+div.dt-layout-row button.dt-button {
+    margin: 0 0 5px 0 !important;
+}

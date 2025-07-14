@@ -20,7 +20,11 @@
     "from": "From",
     "to": "To",
     "sample": "Sample",
+    "filters": "Filters",
+    "clear": "Clear",
     "clear_filters": "Clear Filters",
+    "save": "Save Filters",
+    "load": "Load",
     "configuration": {
         "syslog_config": "Syslog Configuration",
         "show_all_lines": "Show All Lines in Log",
