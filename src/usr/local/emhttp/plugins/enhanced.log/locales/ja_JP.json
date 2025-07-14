@@ -19,7 +19,12 @@
     "log": "ログ",
     "from": "送信元",
     "to": "送信先",
+    "sample": "サンプル",
+    "filters": "フィルター",
+    "clear": "クリア",
     "clear_filters": "フィルターをクリア",
+    "save": "フィルターを保存",
+    "load": "読み込む",
     "configuration": {
         "syslog_config": "Syslog設定",
         "show_all_lines": "ログの全行を表示",

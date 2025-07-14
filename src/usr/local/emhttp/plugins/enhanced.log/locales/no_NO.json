@@ -19,7 +19,12 @@
     "log": "Logg",
     "from": "Fra",
     "to": "Til",
+    "sample": "Eksempel",
+    "filters": "Filtre",
+    "clear": "Tøm",
     "clear_filters": "Fjern filtre",
+    "save": "Lagre filtre",
+    "load": "Last inn",
     "configuration": {
         "syslog_config": "Syslog-konfigurasjon",
         "show_all_lines": "Vis alle linjer i loggen",

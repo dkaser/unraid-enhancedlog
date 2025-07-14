@@ -19,7 +19,12 @@
     "log": "Журнал",
     "from": "Від",
     "to": "До",
+    "sample": "Зразок",
+    "filters": "Фільтри",
+    "clear": "Очистити",
     "clear_filters": "Очистити фільтри",
+    "save": "Зберегти фільтри",
+    "load": "Завантажити",
     "configuration": {
         "syslog_config": "Конфігурація Syslog",
         "show_all_lines": "Показати всі рядки в журналі",
