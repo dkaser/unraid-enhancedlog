@@ -4,7 +4,7 @@
 <PLUGIN 
   name="enhanced.log"
   author="Derek Kaser"
-  version="2025.06.17"
+  version="2025.07.14"
   launch="Tools/EnhancedSyslog"
   pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
   support="https://forums.unraid.net/topic/191178-plugin-enhanced-log-advanced-syslog-viewer-for-unraid/"
@@ -15,17 +15,16 @@
 
 <CHANGES>
 <![CDATA[
-###2025.06.17###
-- Add color pickers to settings page
-- Clean up syslog messages if a translation does not exist for the browser locale
+###2025.07.14###
+- Added ability to save searches
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.06.17-noarch-1.txz">
-<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.06.17/unraid-enhancedlog-2025.06.17-noarch-1.txz</URL>
-<SHA256>4d180c7597442829b5e52a40c0248c15e78bb92fcfb564cd2e18b3595d793525</SHA256>
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.14-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.07.14/unraid-enhancedlog-2025.07.14-noarch-1.txz</URL>
+<SHA256>966090639a945758a63f9921b089ed5b7ce7e6c1159e66bca4f9bb457312b015</SHA256>
 </FILE>
 
 <!--
@@ -34,17 +33,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.06.17-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.14-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.06.17')
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.07.14')
 
-echo "VERSION=2025.06.17" > /usr/local/emhttp/plugins/enhanced.log/version.ini
+echo "VERSION=2025.07.14" > /usr/local/emhttp/plugins/enhanced.log/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " enhanced.log has been installed."
-echo " Version: 2025.06.17"
+echo " Version: 2025.07.14"
 echo "----------------------------------------------------"
 echo ""
 ]]>
