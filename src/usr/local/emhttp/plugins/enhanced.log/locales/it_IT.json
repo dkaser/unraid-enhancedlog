@@ -19,7 +19,12 @@
     "log": "Registro",
     "from": "Da",
     "to": "A",
+    "sample": "Esempio",
+    "filters": "Filtri",
+    "clear": "Pulisci",
     "clear_filters": "Cancella filtri",
+    "save": "Salva filtri",
+    "load": "Carica",
     "configuration": {
         "syslog_config": "Configurazione Syslog",
         "show_all_lines": "Mostra tutte le righe nel log",

@@ -19,7 +19,12 @@
     "log": "Protokoll",
     "from": "Von",
     "to": "Bis",
+    "sample": "Beispiel",
+    "filters": "Filter",
+    "clear": "Leeren",
     "clear_filters": "Filter löschen",
+    "save": "Filter speichern",
+    "load": "Laden",
     "configuration": {
         "syslog_config": "Syslog-Konfiguration",
         "show_all_lines": "Alle Zeilen im Log anzeigen",

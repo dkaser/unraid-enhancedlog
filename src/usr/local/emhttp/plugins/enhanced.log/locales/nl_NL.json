@@ -19,7 +19,12 @@
     "log": "Logboek",
     "from": "Van",
     "to": "Naar",
+    "sample": "Voorbeeld",
+    "filters": "Filters",
+    "clear": "Wissen",
     "clear_filters": "Filters wissen",
+    "save": "Filters opslaan",
+    "load": "Laden",
     "configuration": {
         "syslog_config": "Syslog-configuratie",
         "show_all_lines": "Alle regels in log weergeven",

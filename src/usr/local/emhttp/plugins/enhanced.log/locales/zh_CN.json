@@ -19,7 +19,12 @@
     "log": "日志",
     "from": "来自",
     "to": "到",
+    "sample": "示例",
+    "filters": "筛选器",
+    "clear": "清除",
     "clear_filters": "清除筛选器",
+    "save": "保存筛选器",
+    "load": "加载",
     "configuration": {
         "syslog_config": "Syslog 配置",
         "show_all_lines": "显示日志中的所有行",

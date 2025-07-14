@@ -19,7 +19,12 @@
     "log": "Journal",
     "from": "De",
     "to": "À",
+    "sample": "Exemple",
+    "filters": "Filtres",
+    "clear": "Effacer",
     "clear_filters": "Effacer les filtres",
+    "save": "Enregistrer les filtres",
+    "load": "Charger",
     "configuration": {
         "syslog_config": "Configuration Syslog",
         "show_all_lines": "Afficher toutes les lignes du journal",

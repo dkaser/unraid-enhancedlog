@@ -19,7 +19,12 @@
     "log": "Dziennik",
     "from": "Od",
     "to": "Do",
+    "sample": "Przykład",
+    "filters": "Filtry",
+    "clear": "Wyczyść",
     "clear_filters": "Wyczyść filtry",
+    "save": "Zapisz filtry",
+    "load": "Wczytaj",
     "configuration": {
         "syslog_config": "Konfiguracja Syslog",
         "show_all_lines": "Pokaż wszystkie linie w logu",

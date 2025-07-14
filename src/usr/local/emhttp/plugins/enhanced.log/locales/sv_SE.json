@@ -19,7 +19,12 @@
     "log": "Logg",
     "from": "Från",
     "to": "Till",
+    "sample": "Exempel",
+    "filters": "Filter",
+    "clear": "Rensa",
     "clear_filters": "Rensa filter",
+    "save": "Spara filter",
+    "load": "Ladda",
     "configuration": {
         "syslog_config": "Syslog-konfiguration",
         "show_all_lines": "Visa alla rader i loggen",
