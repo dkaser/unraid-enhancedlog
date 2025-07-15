@@ -75,6 +75,7 @@ div.dt-button-split button {
 
 div.dtsr-creation {
     top: 20% !important;
+    color: black;
 }
 div.dt-layout-row {
     margin: 0 0 0 0 !important;
@@ -82,4 +83,9 @@ div.dt-layout-row {
 
 div.dt-layout-row button.dt-button {
     margin: 0 0 5px 0 !important;
+}
+
+input.dtsr-name-input, input.dtsr-name-input:focus {
+    background-color: white;
+    color: black;
 }
