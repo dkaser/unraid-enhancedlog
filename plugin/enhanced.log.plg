@@ -15,7 +15,6 @@
 
 <CHANGES>
 <![CDATA[
-###2025.07.16###
 
 ### 2025.07.16
 
@@ -25,15 +24,9 @@
 
 - Fix: style issue with dark theme
 
-## Checksum
-unraid-enhancedlog-2025.07.15-noarch-1.txz : dcc689541c93373f7ad7499861108d34755e9eb5432a21b9d2e96004ba9bccfc
-
 ### 2025.07.14
 
 - Added ability to save searches
-
-## Checksum
-unraid-enhancedlog-2025.07.14-noarch-1.txz : 966090639a945758a63f9921b089ed5b7ce7e6c1159e66bca4f9bb457312b015
 
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
