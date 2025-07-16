@@ -73,7 +73,7 @@ div.dt-button-split button {
     background: none;
 }
 
-div.dtsr-creation {
+div.dtsr-creation, div.dtsr-confirmation {
     top: 20% !important;
     color: black;
 }
@@ -85,7 +85,11 @@ div.dt-layout-row button.dt-button {
     margin: 0 0 5px 0 !important;
 }
 
-input.dtsr-name-input, input.dtsr-name-input:focus {
+input.dtsr-name-input, input.dtsr-name-input:focus, input.dtsr-input, input.dtsr-input:focus {
     background-color: white;
+    color: black;
+}
+
+span.dtsr-emptyStates {
     color: black;
 }
