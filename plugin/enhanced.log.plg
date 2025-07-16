@@ -4,7 +4,7 @@
 <PLUGIN 
   name="enhanced.log"
   author="Derek Kaser"
-  version="2025.07.15"
+  version="2025.07.16"
   launch="Tools/EnhancedSyslog"
   pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
   support="https://forums.unraid.net/topic/191178-plugin-enhanced-log-advanced-syslog-viewer-for-unraid/"
@@ -15,16 +15,34 @@
 
 <CHANGES>
 <![CDATA[
-###2025.07.15###
+###2025.07.16###
+
+### 2025.07.16
+
+- Fix: additional dark mode CSS changes
+
+### 2025.07.15
+
 - Fix: style issue with dark theme
+
+## Checksum
+unraid-enhancedlog-2025.07.15-noarch-1.txz : dcc689541c93373f7ad7499861108d34755e9eb5432a21b9d2e96004ba9bccfc
+
+### 2025.07.14
+
+- Added ability to save searches
+
+## Checksum
+unraid-enhancedlog-2025.07.14-noarch-1.txz : 966090639a945758a63f9921b089ed5b7ce7e6c1159e66bca4f9bb457312b015
+
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.15-noarch-1.txz">
-<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.07.15/unraid-enhancedlog-2025.07.15-noarch-1.txz</URL>
-<SHA256>dcc689541c93373f7ad7499861108d34755e9eb5432a21b9d2e96004ba9bccfc</SHA256>
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.16-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.07.16/unraid-enhancedlog-2025.07.16-noarch-1.txz</URL>
+<SHA256>0dcd72c14c21d7dd643971a35216269d1b125b36285452dbe60acd437ae086b8</SHA256>
 </FILE>
 
 <!--
@@ -33,17 +51,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.15-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.16-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.07.15')
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.07.16')
 
-echo "VERSION=2025.07.15" > /usr/local/emhttp/plugins/enhanced.log/version.ini
+echo "VERSION=2025.07.16" > /usr/local/emhttp/plugins/enhanced.log/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " enhanced.log has been installed."
-echo " Version: 2025.07.15"
+echo " Version: 2025.07.16"
 echo "----------------------------------------------------"
 echo ""
 ]]>
