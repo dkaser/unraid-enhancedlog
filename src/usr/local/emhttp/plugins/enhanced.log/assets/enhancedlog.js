@@ -90,6 +90,36 @@ DataTable.feature.register("logSelect", function (settings, opts) {
   return toolbar;
 });
 
+DataTable.feature.register("pluginSelect", function (settings, opts) {
+  let toolbar = document.createElement("div");
+  toolbar.appendChild(document.createTextNode(`${translator.tr("log")}: `));
+
+  const logSelect = document.createElement("select");
+  logSelect.id = "log-select-" + settings.sTableId;
+  logSelect.name = "log-select-" + settings.sTableId;
+
+  const noneOption = document.createElement("option");
+  noneOption.value = "";
+  noneOption.textContent = "";
+  logSelect.appendChild(noneOption);
+
+  for (const [key, value] of Object.entries(pluginFiles)) {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = key;
+    logSelect.appendChild(option);
+  }
+
+  toolbar.appendChild(logSelect);
+
+  logSelect.addEventListener("change", function (e) {
+    const newUrl = opts.baseURL + "?log=" + encodeURIComponent(e.target.value);
+    settings.api.ajax.url(newUrl).load();
+  });
+
+  return toolbar;
+});
+
 const columnSaving = {
   columns: {
     search: true,
@@ -344,6 +374,81 @@ function getSummaryConfig(url) {
       if (data["textColor"] != "") {
         row.style.color = data.textColor;
       }
+    },
+  };
+}
+
+function getPluginConfig(url) {
+  return {
+    ajax: {
+      url: url,
+      dataSrc: "",
+    },
+    order: [[0, "desc"]],
+    columns: [
+      { name: "sequence", data: "sequence" },
+      { name: "line", data: "line" },
+    ],
+    columnDefs: [
+      {
+        targets: 0,
+        width: 1,
+        className: "dt-left",
+        columnControl: {
+          target: 0,
+          content: [],
+        },
+      },
+      {
+        targets: 1,
+        className: "overflow-anywhere",
+        columnControl: {
+          target: 0,
+          content: [
+            {
+              extend: "dropdown",
+              content: ["searchClear", "search"],
+              icon: "search",
+            },
+          ],
+        },
+      },
+    ],
+    paging: true,
+    pageLength: 50,
+    ordering: true,
+    stateSave: true,
+    layout: {
+      topStart: {
+        buttons: [
+          {
+            text: translator.tr("refresh"),
+            action: function (e, dt, node, config) {
+              dt.ajax.reload();
+            },
+          },
+          {
+            extend: "csv",
+            text: translator.tr("download"),
+          },
+          "copy",
+          {
+            text: translator.tr("clear_filters"),
+            action: function (e, dt, node, config) {
+              dt.search("");
+              dt.columns().ccSearchClear();
+              dt.draw();
+            },
+          },
+        ],
+        pluginSelect: {
+          baseURL: url,
+        },
+        pageLength: {
+          menu: [25, 50, 100, 200, -1],
+        },
+      },
+      topEnd: {},
     },
   };
 }

@@ -47,6 +47,46 @@ $app->get("{$prefix}/files", function (Request $request, Response $response, $ar
         ->withStatus(200);
 });
 
+$app->get("{$prefix}/pluginFiles", function (Request $request, Response $response, $args) {
+    $plugins = new Plugins();
+    $logs    = $plugins->getFiles();
+    $payload = json_encode($logs) ?: "[]";
+    $response->getBody()->write($payload);
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
+});
+
+$app->get("{$prefix}/pluginLog", function (Request $request, Response $response, $args) {
+    // Get the log file name from the query parameters
+    $body = (array) $request->getQueryParams();
+
+    $payload = array();
+
+    // Get the log file via Plugins class
+    $plugins = new Plugins();
+    $logData = $plugins->getFile($body['log'] ?? '');
+
+    // Split the log data into lines, then add each line to the payload with its sequence number
+    if ($logData !== null) {
+        $lines = explode("\n", $logData);
+        foreach ($lines as $sequence => $line) {
+            if (trim($line) !== '') { // Skip empty lines
+                $payload[] = [
+                    'sequence' => $sequence,
+                    'line'     => trim($line)
+                ];
+            }
+        }
+    }
+    $response->getBody()->write(json_encode($payload) ?: "[]");
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Cache-Control', 'no-store')
+        ->withStatus(200);
+});
+
 $app->get("{$prefix}/log", function (Request $request, Response $response, $args) {
     $body = (array) $request->getQueryParams();
 

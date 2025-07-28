@@ -32,6 +32,9 @@ $tr = $tr ?? new Translator(PLUGIN_ROOT);
 
 $logs = Utils::getLogFiles();
 
+$plugins     = new Plugins();
+$pluginFiles = $plugins->getFiles();
+
 $enhanced_log_cfg = Utils::getConfig();
 $colors           = new Colors();
 $colors->parseConfig($enhanced_log_cfg);
@@ -48,6 +51,11 @@ if (in_array($theme ?? "", $themeArray)) {
 <script>
 const logFiles = <?= json_encode(
     array_combine(array_map('basename', $logs), $logs),
+    JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+); ?>;
+
+const pluginFiles = <?= json_encode(
+    array_combine(array_map('basename', $pluginFiles), $pluginFiles),
     JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
 ); ?>;
 </script>
@@ -87,6 +95,7 @@ $(document).ready( async function () {
     await translator.init();
     $('#logTable').DataTable(getDatatableConfig('/plugins/enhanced.log/data.php/log'));
     $('#summaryTable').DataTable(getSummaryConfig('/plugins/enhanced.log/data.php/summary'));
+    $('#pluginTable').DataTable(getPluginConfig('/plugins/enhanced.log/data.php/pluginLog'));
 } );
 
 <?php foreach ($colors->getColors() as $color) { ?>

@@ -25,6 +25,7 @@
     "clear_filters": "Filters wissen",
     "save": "Filters opslaan",
     "load": "Laden",
+    "line": "Regelnummer",
     "configuration": {
         "syslog_config": "Syslog-configuratie",
         "show_all_lines": "Alle regels in log weergeven",

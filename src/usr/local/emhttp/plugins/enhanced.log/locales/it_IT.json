@@ -25,6 +25,7 @@
     "clear_filters": "Cancella filtri",
     "save": "Salva filtri",
     "load": "Carica",
+    "line": "Numero di riga",
     "configuration": {
         "syslog_config": "Configurazione Syslog",
         "show_all_lines": "Mostra tutte le righe nel log",

@@ -25,6 +25,7 @@
     "clear_filters": "Wyczyść filtry",
     "save": "Zapisz filtry",
     "load": "Wczytaj",
+    "line": "Numer linii",
     "configuration": {
         "syslog_config": "Konfiguracja Syslog",
         "show_all_lines": "Pokaż wszystkie linie w logu",

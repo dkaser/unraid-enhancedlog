@@ -25,6 +25,7 @@
     "clear_filters": "Rensa filter",
     "save": "Spara filter",
     "load": "Ladda",
+    "line": "Radnummer",
     "configuration": {
         "syslog_config": "Syslog-konfiguration",
         "show_all_lines": "Visa alla rader i loggen",

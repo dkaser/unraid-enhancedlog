@@ -25,6 +25,7 @@
     "clear_filters": "Очистити фільтри",
     "save": "Зберегти фільтри",
     "load": "Завантажити",
+    "line": "Номер рядка",
     "configuration": {
         "syslog_config": "Конфігурація Syslog",
         "show_all_lines": "Показати всі рядки в журналі",
