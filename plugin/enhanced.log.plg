@@ -4,7 +4,7 @@
 <PLUGIN 
   name="enhanced.log"
   author="Derek Kaser"
-  version="2025.07.27"
+  version="2025.07.28"
   launch="Tools/EnhancedSyslog"
   pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
   support="https://forums.unraid.net/topic/191178-plugin-enhanced-log-advanced-syslog-viewer-for-unraid/"
@@ -16,6 +16,10 @@
 <CHANGES>
 <![CDATA[
 
+### 2025.07.28
+
+* feat: improved logging by @dkaser in https://github.com/dkaser/unraid-enhancedlog/pull/13
+
 ### 2025.07.27
 
 - Feature: New plugin logs page, any plugin can opt in to having its logs available for display.
@@ -24,18 +28,14 @@
 
 - Fix: additional dark mode CSS changes
 
-### 2025.07.15
-
-- Fix: style issue with dark theme
-
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.27-noarch-1.txz">
-<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.07.27/unraid-enhancedlog-2025.07.27-noarch-1.txz</URL>
-<SHA256>2936cacebe7063f0c24e047fa305d163e7af2513833e878dfca9c26776da39e2</SHA256>
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.28-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.07.28/unraid-enhancedlog-2025.07.28-noarch-1.txz</URL>
+<SHA256>087e4c2a74694f68c369bf59e946af5da74303ad4bff47b37fe46c496d5053db</SHA256>
 </FILE>
 
 <!--
@@ -44,17 +44,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.27-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.07.28-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.07.27')
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.07.28')
 
-echo "VERSION=2025.07.27" > /usr/local/emhttp/plugins/enhanced.log/version.ini
+echo "VERSION=2025.07.28" > /usr/local/emhttp/plugins/enhanced.log/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " enhanced.log has been installed."
-echo " Version: 2025.07.27"
+echo " Version: 2025.07.28"
 echo "----------------------------------------------------"
 echo ""
 ]]>
