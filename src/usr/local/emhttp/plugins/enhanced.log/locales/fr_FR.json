@@ -25,6 +25,7 @@
     "clear_filters": "Effacer les filtres",
     "save": "Enregistrer les filtres",
     "load": "Charger",
+    "line": "Numéro de ligne",
     "configuration": {
         "syslog_config": "Configuration Syslog",
         "show_all_lines": "Afficher toutes les lignes du journal",

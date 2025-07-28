@@ -25,6 +25,7 @@
     "clear_filters": "Filter löschen",
     "save": "Filter speichern",
     "load": "Laden",
+    "line": "Zeilennummer",
     "configuration": {
         "syslog_config": "Syslog-Konfiguration",
         "show_all_lines": "Alle Zeilen im Log anzeigen",

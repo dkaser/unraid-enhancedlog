@@ -25,6 +25,7 @@
     "clear_filters": "清除筛选器",
     "save": "保存筛选器",
     "load": "加载",
+    "line": "行号",
     "configuration": {
         "syslog_config": "Syslog 配置",
         "show_all_lines": "显示日志中的所有行",

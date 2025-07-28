@@ -25,6 +25,7 @@
     "clear_filters": "フィルターをクリア",
     "save": "フィルターを保存",
     "load": "読み込む",
+    "line": "行番号",
     "configuration": {
         "syslog_config": "Syslog設定",
         "show_all_lines": "ログの全行を表示",
