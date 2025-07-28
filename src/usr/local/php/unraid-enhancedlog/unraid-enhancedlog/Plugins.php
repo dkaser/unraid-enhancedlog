@@ -23,9 +23,11 @@ class Plugins
 {
     /** @var array<string> $files */
     private array $files = [];
+    private Utils $utils;
 
     public function __construct()
     {
+        $this->utils = new Utils("enhanced.log");
         $this->files = $this->findLogFiles();
     }
 
@@ -64,23 +66,30 @@ class Plugins
         $files = array();
 
         foreach (glob("{$path[0]}*{$path[1]}") ?: array() as $file) {
+            $this->utils->logmsg("Found plugin file: {$file}");
             try {
                 $data = (object) json_decode(file_get_contents($file) ?: "{}", false);
 
                 if ( ! isset($data->files)) {
+                    $this->utils->logmsg("No files defined in plugin file {$file}");
                     continue;
                 }
 
                 // Glob each entry in the files array. Add any found files to the list.
                 foreach ($data->files as $glob) {
+                    $this->utils->logmsg("Searching for files matching glob: {$glob}");
                     $foundFiles = glob($glob) ?: array();
                     foreach ($foundFiles as $foundFile) {
                         if (is_file($foundFile)) {
+                            $this->utils->logmsg("Found file: {$foundFile}");
                             $files[] = $foundFile;
+                        } else {
+                            $this->utils->logmsg("Skipping non-file: {$foundFile}");
                         }
                     }
                 }
             } catch (\Exception $e) {
+                $this->utils->logmsg("Error reading plugin file {$file}: " . $e->getMessage());
                 continue;
             }
         }
