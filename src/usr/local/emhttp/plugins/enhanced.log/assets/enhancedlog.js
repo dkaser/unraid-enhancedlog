@@ -68,10 +68,12 @@ DataTable.feature.register("dateRange", function (settings, opts) {
 DataTable.feature.register("logSelect", function (settings, opts) {
   let toolbar = document.createElement("div");
   toolbar.appendChild(document.createTextNode(`${translator.tr("log")}: `));
+  toolbar.className = "log-select";
 
   const logSelect = document.createElement("select");
   logSelect.id = "log-select-" + settings.sTableId;
   logSelect.name = "log-select-" + settings.sTableId;
+  logSelect.className = "log-select";
 
   for (const [key, value] of Object.entries(logFiles)) {
     const option = document.createElement("option");
@@ -93,10 +95,12 @@ DataTable.feature.register("logSelect", function (settings, opts) {
 DataTable.feature.register("pluginSelect", function (settings, opts) {
   let toolbar = document.createElement("div");
   toolbar.appendChild(document.createTextNode(`${translator.tr("log")}: `));
+  toolbar.className = "log-select";
 
   const logSelect = document.createElement("select");
   logSelect.id = "log-select-" + settings.sTableId;
   logSelect.name = "log-select-" + settings.sTableId;
+  logSelect.className = "log-select";
 
   const noneOption = document.createElement("option");
   noneOption.value = "";

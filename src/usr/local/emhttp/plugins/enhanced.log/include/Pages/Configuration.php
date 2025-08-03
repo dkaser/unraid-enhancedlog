@@ -49,7 +49,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 	<dl>
         <dt><?= $tr->tr("configuration.show_all_lines"); ?></dt>
         <dd>
-			<select name="TEXT" size="1">
+			<select name="TEXT" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['TEXT'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['TEXT'], "no", $tr->tr("no"));?>
 			</select>
@@ -68,7 +68,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 	<dl>
         <dt><?= $tr->tr("configuration.error_highlight"); ?></dt>
         <dd>
-            <select name="ERRORS" size="1">
+            <select name="ERRORS" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['ERRORS'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['ERRORS'], "no", $tr->tr("no"));?>
 			</select>
@@ -79,7 +79,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.minor_highlight"); ?></dt>
         <dd>
-            <select name="MINOR_ISSUES" size="1">
+            <select name="MINOR_ISSUES" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['MINOR_ISSUES'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['MINOR_ISSUES'], "no", $tr->tr("no"));?>
 	  		</select>
@@ -90,7 +90,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.lime_highlight"); ?></dt>
         <dd>
-            <select name="LIME_TECH" size="1">
+            <select name="LIME_TECH" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['LIME_TECH'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['LIME_TECH'], "no", $tr->tr("no"));?>
 	  		</select>
@@ -101,7 +101,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.array_highlight"); ?></dt>
         <dd>
-            <select name="ARRAY" size="1">
+            <select name="ARRAY" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['ARRAY'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['ARRAY'], "no", $tr->tr("no"));?>
 	  		</select>
@@ -112,7 +112,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.system_highlight"); ?></dt>
         <dd>
-            <select name="SYSTEM" size="1">
+            <select name="SYSTEM" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['SYSTEM'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['SYSTEM'], "no", $tr->tr("no"));?>
 	  		</select>
@@ -123,7 +123,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.file_highlight"); ?></dt>
         <dd>
-            <select name="FILE_SYSTEM" size="1">
+            <select name="FILE_SYSTEM" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['FILE_SYSTEM'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['FILE_SYSTEM'], "no", $tr->tr("no"));?>
 			</select>
@@ -134,7 +134,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.drive_highlight"); ?></dt>
         <dd>
-            <select name="DRIVE_RELATED" size="1">
+            <select name="DRIVE_RELATED" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['DRIVE_RELATED'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['DRIVE_RELATED'], "no", $tr->tr("no"));?>
 			</select>
@@ -145,7 +145,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.network_highlight"); ?></dt>
         <dd>
-            <select name="NETWORK" size="1">
+            <select name="NETWORK" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['NETWORK'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['NETWORK'], "no", $tr->tr("no"));?>
 			</select>
@@ -156,7 +156,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.login_highlight"); ?></dt>
         <dd>
-            <select name="LOGIN" size="1">
+            <select name="LOGIN" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['LOGIN'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['LOGIN'], "no", $tr->tr("no"));?>
 			</select>
@@ -167,7 +167,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.emhttp_highlight"); ?></dt>
         <dd>
-            <select name="EMHTTP" size="1">
+            <select name="EMHTTP" size="1" class='narrow'>
 				<?= Utils::make_option($enhanced_log_cfg['EMHTTP'], "yes", $tr->tr("yes"));?>
 				<?= Utils::make_option($enhanced_log_cfg['EMHTTP'], "no", $tr->tr("no"));?>
 			</select>
@@ -178,7 +178,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.other_highlight"); ?></dt>
         <dd>
-            <select name="OTHER" size="1">
+            <select name="OTHER" size="1" class='narrow'>
 		<?= Utils::make_option($enhanced_log_cfg['OTHER'], "yes", $tr->tr("yes"));?>
 		<?= Utils::make_option($enhanced_log_cfg['OTHER'], "no", $tr->tr("no"));?>
 	  </select>
@@ -188,11 +188,13 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 
 	<dl>
 		<dt>
-			<input type="submit" name="#default" value="<?= $tr->tr("default"); ?>">
+			<span><input type="submit" name="#default" value="<?= $tr->tr("default"); ?>"></span>
 		</dt>
 		<dd>
-			<input type="submit" value='<?= $tr->tr("apply"); ?>'>
-			<input type="button" value="<?= $tr->tr("done"); ?>" onclick="done()">
+			<span>
+                <input type="submit" value='<?= $tr->tr("apply"); ?>'>
+			    <input type="button" value="<?= $tr->tr("done"); ?>" onclick="done()">
+            </span>
 		</dd>
 	</dl>
     
