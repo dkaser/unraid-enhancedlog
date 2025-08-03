@@ -33,7 +33,7 @@ $tr = $tr ?? new Translator(PLUGIN_ROOT);
 // Fix for black theme in Unraid 7.1 and earlier
 $vars = parse_ini_file('/usr/local/emhttp/state/var.ini');
 if (version_compare($vars['version'] ?? "", '7.1', '<=')) {
-    echo "<style>div.dtcc-dropdown * { color: black }</style>";
+    echo '<link type="text/css" rel="stylesheet" href="/plugins/enhanced.log/assets/style-7.1.css">';
 }
 
 $logs = Utils::getLogFiles();
