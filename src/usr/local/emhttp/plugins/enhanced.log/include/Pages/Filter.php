@@ -60,7 +60,7 @@ Because the Syslog is very important for debugging issues, don't filter out entr
 	<dl><dt>&nbsp;</dt><dd>
 		<form name="apply_syslog_filter" method="POST" action="/update.php" target="progressFrame">
 			<input type="hidden" name="#command" value="/plugins/enhanced.log/scripts/rc.enhanced.log">
-			<input type="submit" value="<?= $tr->tr('apply'); ?>"><input type="button" value="<?= $tr->tr('done'); ?>" onclick="done()">
+			<span><input type="submit" value="<?= $tr->tr('apply'); ?>"><input type="button" value="<?= $tr->tr('done'); ?>" onclick="done()"></span>
 		</form>
 	</dd></dl>
 

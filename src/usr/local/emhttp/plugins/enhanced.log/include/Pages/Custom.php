@@ -67,7 +67,7 @@ $text = @file_get_contents($file);
     </dl>
 
 	<dl><dt>&nbsp;</dt><dd>
-	<input type="submit" value='<?= $tr->tr('apply'); ?>'><input type="button" value="<?= $tr->tr('done'); ?>" onclick="done()">
+	<span><input type="submit" value='<?= $tr->tr('apply'); ?>'><input type="button" value="<?= $tr->tr('done'); ?>" onclick="done()"></span>
 	</dd></dl>
 
 	</form>

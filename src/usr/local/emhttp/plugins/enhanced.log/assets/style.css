@@ -47,10 +47,6 @@ div.flatpickr-calendar {
     font-size: 1.2rem;
 }
 
-div.dtcc-dropdown * {
-    color: black;
-}
-
 span.dtcc-button-icon svg {
     color: white;
     background-color: gray;
@@ -92,4 +88,12 @@ input.dtsr-name-input, input.dtsr-name-input:focus, input.dtsr-input, input.dtsr
 
 span.dtsr-emptyStates {
     color: black;
+}
+
+select.log-select {
+    width: fit-content;
+}
+
+div.log-select, div.dt-length {
+    white-space: pre;
 }

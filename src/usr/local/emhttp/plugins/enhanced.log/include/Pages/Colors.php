@@ -79,6 +79,7 @@ $(document).ready( async function () {
     .sampleText {
         padding-left: 20px;
         padding-right:20px;
+        width: fit-content;
     }
 </style>
 
@@ -191,11 +192,13 @@ $(document).ready( async function () {
 
 	<dl>
 		<dt>
-			<input type="submit" name="#default" value="<?= $tr->tr("default"); ?>">
+			<span><input type="submit" name="#default" value="<?= $tr->tr("default"); ?>"></span>
 		</dt>
 		<dd>
-			<input type="submit" value='<?= $tr->tr("apply"); ?>'>
-			<input type="button" value="<?= $tr->tr("done"); ?>" onclick="done()">
+			<span>
+                <input type="submit" value='<?= $tr->tr("apply"); ?>'>
+                <input type="button" value="<?= $tr->tr("done"); ?>" onclick="done()">
+            </span>
 		</dd>
 	</dl>
 
