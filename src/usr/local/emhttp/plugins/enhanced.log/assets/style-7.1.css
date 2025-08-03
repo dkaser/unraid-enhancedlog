@@ -1,0 +1,16 @@
+input.dtsr-name-input,
+input.dtsr-name-input:focus,
+input.dtsr-input,
+input.dtsr-input:focus {
+  background-color: white;
+  color: black;
+}
+
+div.dtcc-dropdown * {
+  color: black;
+}
+
+div.dtsr-creation,
+div.dtsr-confirmation {
+  color: black;
+}

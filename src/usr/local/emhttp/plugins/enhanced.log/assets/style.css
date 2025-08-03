@@ -1,99 +1,95 @@
 .tablesorter .filtered {
-    display: none;
+  display: none;
 }
 
 .tablesorter-filter.disabled {
-    display: none;
+  display: none;
 }
 
 table.tablesorter tbody tr td {
-    overflow-wrap: anywhere;
-    text-align: left;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .overflow-anywhere {
-    overflow-wrap: anywhere;
-    white-space: normal;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 button.select2-selection__choice__remove,
 button.dt-datetime-button,
 button.dtcc-button {
-    min-width: 0;
-    max-width: none;
-    margin: 0 0 0 0;
-    border: none;
-    background: none;
+  min-width: 0;
+  max-width: none;
+  margin: 0 0 0 0;
+  border: none;
+  background: none;
 }
 
 div.dtcc-list * {
-    min-width: 0;
-    max-width: none;
-    margin: 0 0 0 0;
+  min-width: 0;
+  max-width: none;
+  margin: 0 0 0 0;
 }
 
 button.dtcc-list-selectAll,
 button.dtcc-list-selectNone,
 button.fg-button {
-    min-width: 0;
-    max-width: none;
-    margin: 0 0 0 0;
-    border: none;
-    background: none;
-    letter-spacing: initial;
+  min-width: 0;
+  max-width: none;
+  margin: 0 0 0 0;
+  border: none;
+  background: none;
+  letter-spacing: initial;
 }
 
 div.flatpickr-calendar {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 span.dtcc-button-icon svg {
-    color: white;
-    background-color: gray;
-    padding: 2px 2px 2px 2px;
+  color: white;
+  background-color: gray;
+  padding: 2px 2px 2px 2px;
 }
 
 div.dt-button-info {
-    color: black;
+  color: black;
 }
 
 input.flatpickr-input {
-    width: 150px;
+  width: 150px;
 }
 
 div.dt-button-split button {
-    min-width: 0;
-    max-width: none;
-    margin: 0 0 0 0;
-    
-    background: none;
+  min-width: 0;
+  max-width: none;
+  margin: 0 0 0 0;
+
+  background: none;
 }
 
-div.dtsr-creation, div.dtsr-confirmation {
-    top: 20% !important;
-    color: black;
+div.dtsr-creation,
+div.dtsr-confirmation {
+  top: 20% !important;
 }
 div.dt-layout-row {
-    margin: 0 0 0 0 !important;
+  margin: 0 0 0 0 !important;
 }
 
 div.dt-layout-row button.dt-button {
-    margin: 0 0 5px 0 !important;
-}
-
-input.dtsr-name-input, input.dtsr-name-input:focus, input.dtsr-input, input.dtsr-input:focus {
-    background-color: white;
-    color: black;
+  margin: 0 0 5px 0 !important;
 }
 
 span.dtsr-emptyStates {
-    color: black;
+  color: black;
 }
 
 select.log-select {
-    width: fit-content;
+  width: fit-content;
 }
 
-div.log-select, div.dt-length {
-    white-space: pre;
+div.log-select,
+div.dt-length {
+  white-space: pre;
 }
