@@ -24,7 +24,7 @@ use EDACerton\PluginUtils\Translator;
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-if (! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
+if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
     throw new \RuntimeException("Common file not loaded.");
 }
 
