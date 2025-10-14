@@ -2,6 +2,9 @@
 
 namespace EDACerton\EnhancedLog;
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -33,9 +36,12 @@ if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PL
 }
 $tr = $tr ?? new Translator(PLUGIN_ROOT);
 
+$logger = new Logger('enhanced.log');
+$logger->pushHandler(new StreamHandler('/var/log/enhanced.log.slim.log', Level::Debug));
+
 $app = AppFactory::create();
 $app->addRoutingMiddleware();
-$errorMiddleware = $app->addErrorMiddleware(false, true, true);
+$errorMiddleware = $app->addErrorMiddleware(false, true, true, $logger);
 
 $app->get("{$prefix}/files", function (Request $request, Response $response, $args) {
     $logs    = Utils::getLogFiles();
@@ -87,7 +93,7 @@ $app->get("{$prefix}/pluginLog", function (Request $request, Response $response,
         ->withStatus(200);
 });
 
-$app->get("{$prefix}/log", function (Request $request, Response $response, $args) {
+$app->get("{$prefix}/log", function (Request $request, Response $response, $args) use ($logger) {
     $body = (array) $request->getQueryParams();
 
     $enhanced_log_cfg = Utils::getConfig();
@@ -112,14 +118,29 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
     $payload   = array();
 
     foreach ($logReader->getLogLines() as $sequence => $line) {
-        $color     = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
-        $textColor = empty($line->getMatch()) ? "" : $colors->getTextColor($line->getMatch());
+        $match = strtolower($line->getMatch());
+
+        // Skip lines with a custom match of "skip"
+        if ($match === "skip") {
+            continue;
+        }
+
+        try {
+            $color     = empty($match) ? "" : $colors->getColor($match);
+            $textColor = empty($match) ? "" : $colors->getTextColor($match);
+        } catch (\Exception $e) {
+            // If the color is not found, set to empty and log with Monolog
+            $logger->warning("Color not found for match '{$line->getMatch()}': " . $e->getMessage());
+            $color     = "";
+            $textColor = "";
+            $match     = "";
+        }
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
         }
 
-        $matchType = empty($line->getMatch()) ? "" : $colors->getColorName($line->getMatch(), $tr);
+        $matchType = empty($match) ? "" : $colors->getColorName($match, $tr);
 
         $payload[] = [
             'sequence'      => $sequence,
@@ -141,7 +162,7 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
         ->withStatus(200);
 });
 
-$app->get("{$prefix}/summary", function (Request $request, Response $response, $args) {
+$app->get("{$prefix}/summary", function (Request $request, Response $response, $args) use ($logger) {
     $body = (array) $request->getQueryParams();
 
     $enhanced_log_cfg = Utils::getConfig();
@@ -166,14 +187,29 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
     $payload   = array();
 
     foreach ($logReader->getLogSummary() as $line) {
-        $color     = empty($line->getMatch()) ? "" : $colors->getColor($line->getMatch());
-        $textColor = empty($line->getMatch()) ? "" : $colors->getTextColor($line->getMatch());
+        $match = strtolower($line->getMatch());
+
+        // Skip lines with a custom match of "skip"
+        if ($match === "skip") {
+            continue;
+        }
+
+        try {
+            $color     = empty($match) ? "" : $colors->getColor($match);
+            $textColor = empty($match) ? "" : $colors->getTextColor($match);
+        } catch (\Exception $e) {
+            // If the color is not found, set to empty and log with Monolog
+            $logger->warning("Color not found for match '{$match}': " . $e->getMessage());
+            $color     = "";
+            $textColor = "";
+            $match     = "";
+        }
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
         }
 
-        $matchType = empty($line->getMatch()) ? "" : $colors->getColorName($line->getMatch(), $tr);
+        $matchType = empty($match) ? "" : $colors->getColorName($match, $tr);
 
         $payload[] = [
             'count'     => $line->getCount(),
