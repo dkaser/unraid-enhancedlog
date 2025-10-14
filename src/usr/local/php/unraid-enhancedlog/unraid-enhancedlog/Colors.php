@@ -4,6 +4,7 @@ namespace EDACerton\EnhancedLog;
 
 use EDACerton\PluginUtils\Translator;
 use Tomloprod\Colority\Support\Facades\Colority;
+use Monolog\Logger;
 
 /*
     Copyright 2025  Derek Kaser
@@ -75,6 +76,13 @@ class Colors
         'other'         => 'colors.other',
     ];
 
+    private Logger|null $logger;
+
+    public function __construct(Logger $logger = null)
+    {
+        $this->logger = $logger;
+    }
+
     /**
      * @return array<string>
      */
@@ -88,7 +96,10 @@ class Colors
         if (array_key_exists($colorName, $this->colors)) {
             return $this->colors[$colorName];
         } else {
-            throw new \Exception("Color not found: " . $colorName);
+            if ($this->logger) {
+                $this->logger->warning("Color not found: " . $colorName);
+            }
+            return "";
         }
     }
 
@@ -97,7 +108,10 @@ class Colors
         if (array_key_exists($colorName, $this->textColors)) {
             return $this->textColors[$colorName];
         } else {
-            throw new \Exception("Color not found: " . $colorName);
+            if ($this->logger) {
+                $this->logger->warning("Color not found: " . $colorName);
+            }
+            return "";
         }
     }
 
@@ -116,7 +130,10 @@ class Colors
         if (array_key_exists($colorName, $this->colors)) {
             return $tr->tr($this->translations[$colorName]);
         } else {
-            throw new \Exception("Color not found: " . $colorName);
+            if ($this->logger) {
+                $this->logger->warning("Color not found: " . $colorName);
+            }
+            return "";
         }
     }
 
