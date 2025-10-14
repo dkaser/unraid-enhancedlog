@@ -58,7 +58,7 @@ class LogReader
         $matchConfig = file('plugins/enhanced.log/syslog_match.conf') ?: array();
         if ($this->config['OTHER'] == "yes") {
             $custom      = file('/boot/config/plugins/enhanced.log/custom_syslog.conf') ?: array();
-            $matchConfig = array_merge($matchConfig, $custom);
+            $matchConfig = array_merge($custom, $matchConfig);
         }
 
         $match = array();
