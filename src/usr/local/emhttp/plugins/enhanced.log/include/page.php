@@ -25,11 +25,8 @@ namespace EDACerton\EnhancedLog;
 function getPage(string $filename, bool $niceError = true, array $params = array()): string
 {
     try {
-        $response = "";
-
         require_once dirname(__FILE__) . "/common.php";
-        $response .= includePage(dirname(__FILE__) . "/Pages/{$filename}.php", $params);
-        return $response;
+        return includePage(dirname(__FILE__) . "/Pages/{$filename}.php", $params);
     } catch (\Throwable $e) {
         if ($niceError) {
             if ( ! defined(__NAMESPACE__ . "\PLUGIN_NAME")) {
@@ -53,8 +50,13 @@ function includePage(string $filename, array $params = array()): string
 
     if (is_file($filename)) {
         ob_start();
-        include $filename;
-        return ob_get_clean() ?: "";
+        try {
+            include $filename;
+            return ob_get_clean() ?: "";
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
     }
     return "";
 }
