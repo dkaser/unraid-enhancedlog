@@ -98,10 +98,8 @@ class Colors
         } else {
             if ($this->logger) {
                 $this->logger->warning("Color not found: " . $colorName);
-                return "";
             }
-
-            throw new \Exception("Color not found: " . $colorName);
+            return "";
         }
     }
 
@@ -112,10 +110,8 @@ class Colors
         } else {
             if ($this->logger) {
                 $this->logger->warning("Color not found: " . $colorName);
-                return "";
             }
-
-            throw new \Exception("Color not found: " . $colorName);
+            return "";
         }
     }
 
@@ -136,9 +132,8 @@ class Colors
         } else {
             if ($this->logger) {
                 $this->logger->warning("Color not found: " . $colorName);
-                return "";
             }
-            throw new \Exception("Color not found: " . $colorName);
+            return "";
         }
     }
 
