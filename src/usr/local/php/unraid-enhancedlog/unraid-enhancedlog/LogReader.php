@@ -58,7 +58,7 @@ class LogReader
         $matchConfig = file('plugins/enhanced.log/syslog_match.conf') ?: array();
         if ($this->config['OTHER'] == "yes") {
             $custom      = file('/boot/config/plugins/enhanced.log/custom_syslog.conf') ?: array();
-            $matchConfig = array_merge($matchConfig, $custom);
+            $matchConfig = array_merge($custom, $matchConfig);
         }
 
         $match = array();
@@ -76,6 +76,11 @@ class LogReader
 
             $regex = $split[0];
             $color = $split[1];
+
+            if (preg_match("/{$regex}/i", '') === false) {
+                $utils->logmsg("Invalid regex in match line: {$line}");
+                continue;
+            }
 
             if ( ! empty($regex) && ! empty($color)) {
                 $match[] = new LogMatch($regex, $color);
