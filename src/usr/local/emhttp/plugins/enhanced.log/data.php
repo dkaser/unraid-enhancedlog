@@ -109,7 +109,7 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
         $maxLines = 1000;
     }
 
-    $colors = new Colors();
+    $colors = new Colors($logger);
     $colors->parseConfig($enhanced_log_cfg);
 
     $tr = new Translator(PLUGIN_ROOT);
@@ -125,16 +125,8 @@ $app->get("{$prefix}/log", function (Request $request, Response $response, $args
             continue;
         }
 
-        try {
-            $color     = empty($match) ? "" : $colors->getColor($match);
-            $textColor = empty($match) ? "" : $colors->getTextColor($match);
-        } catch (\Exception $e) {
-            // If the color is not found, set to empty and log with Monolog
-            $logger->warning("Color not found for match '{$line->getMatch()}': " . $e->getMessage());
-            $color     = "";
-            $textColor = "";
-            $match     = "";
-        }
+        $color     = empty($match) ? "" : $colors->getColor($match);
+        $textColor = empty($match) ? "" : $colors->getTextColor($match);
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
@@ -178,7 +170,7 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
         $maxLines = 1000;
     }
 
-    $colors = new Colors();
+    $colors = new Colors($logger);
     $colors->parseConfig($enhanced_log_cfg);
 
     $tr = new Translator(PLUGIN_ROOT);
@@ -194,16 +186,8 @@ $app->get("{$prefix}/summary", function (Request $request, Response $response, $
             continue;
         }
 
-        try {
-            $color     = empty($match) ? "" : $colors->getColor($match);
-            $textColor = empty($match) ? "" : $colors->getTextColor($match);
-        } catch (\Exception $e) {
-            // If the color is not found, set to empty and log with Monolog
-            $logger->warning("Color not found for match '{$match}': " . $e->getMessage());
-            $color     = "";
-            $textColor = "";
-            $match     = "";
-        }
+        $color     = empty($match) ? "" : $colors->getColor($match);
+        $textColor = empty($match) ? "" : $colors->getTextColor($match);
 
         if (strtolower($color) === "skip" || ! preg_match("/\w+/", $line->getMessage())) {
             continue;
