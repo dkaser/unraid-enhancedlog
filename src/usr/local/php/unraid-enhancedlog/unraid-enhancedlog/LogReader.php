@@ -77,6 +77,11 @@ class LogReader
             $regex = $split[0];
             $color = $split[1];
 
+            if (preg_match("/{$regex}/i", '') === false) {
+                $utils->logmsg("Invalid regex in match line: {$line}");
+                continue;
+            }
+
             if ( ! empty($regex) && ! empty($color)) {
                 $match[] = new LogMatch($regex, $color);
             }
