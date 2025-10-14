@@ -4,7 +4,7 @@
 <PLUGIN 
   name="enhanced.log"
   author="Derek Kaser"
-  version="2025.08.15"
+  version="2025.10.14.0339"
   launch="Tools/EnhancedSyslog"
   pluginURL="https://raw.githubusercontent.com/dkaser/unraid-enhancedlog/main/plugin/enhanced.log.plg"
   support="https://forums.unraid.net/topic/191178-plugin-enhanced-log-advanced-syslog-viewer-for-unraid/"
@@ -16,6 +16,17 @@
 <CHANGES>
 <![CDATA[
 
+### 2025.10.14.0339
+
+### 🚀 Features
+
+- Allow custom matches to override default ones ([#18](https://github.com/dkaser/unraid-enhancedlog/pull/18))
+
+### 🐛 Bug Fixes
+
+- Clean output buffer on error ([#17](https://github.com/dkaser/unraid-enhancedlog/pull/17))
+- Improved handling of invalid custom matches ([#16](https://github.com/dkaser/unraid-enhancedlog/pull/16))
+
 ### 2025.08.15
 
 - Update name in README
@@ -24,18 +35,14 @@
 
 - fix: style for Unraid 7.2
 
-### 2025.07.28
-
-* feat: improved logging by @dkaser in https://github.com/dkaser/unraid-enhancedlog/pull/13
-
 
 For older releases, see https://github.com/dkaser/unraid-enhancedlog/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.08.15-noarch-1.txz">
-<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.08.15/unraid-enhancedlog-2025.08.15-noarch-1.txz</URL>
-<SHA256>69b88736dbfedb42f09fc548aa6d6c5b359bc62749f6254b1afa2852216532cb</SHA256>
+<FILE Name="/boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.10.14.0339-noarch-1.txz">
+<URL>https://github.com/dkaser/unraid-enhancedlog/releases/download/2025.10.14.0339/unraid-enhancedlog-2025.10.14.0339-noarch-1.txz</URL>
+<SHA256>4c7c9ce84c360bf34b9216e5fbe1e665a934ecc1904d2683917b6286692d108c</SHA256>
 </FILE>
 
 <!--
@@ -44,17 +51,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.08.15-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/enhanced.log/unraid-enhancedlog-2025.10.14.0339-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.08.15')
+rm -f $(ls /boot/config/plugins/enhanced.log/unraid-enhancedlog-*.txz 2>/dev/null | grep -v '2025.10.14.0339')
 
-echo "VERSION=2025.08.15" > /usr/local/emhttp/plugins/enhanced.log/version.ini
+echo "VERSION=2025.10.14.0339" > /usr/local/emhttp/plugins/enhanced.log/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " enhanced.log has been installed."
-echo " Version: 2025.08.15"
+echo " Version: 2025.10.14.0339"
 echo "----------------------------------------------------"
 echo ""
 ]]>
