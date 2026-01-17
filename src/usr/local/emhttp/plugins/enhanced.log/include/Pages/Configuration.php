@@ -26,7 +26,8 @@ if ( ! defined(__NAMESPACE__ . '\PLUGIN_ROOT') || ! defined(__NAMESPACE__ . '\PL
     throw new \RuntimeException("Common file not loaded.");
 }
 
-$tr = $tr ?? new Translator(PLUGIN_ROOT);
+$tr    = $tr       ?? new Translator(PLUGIN_ROOT);
+$utils = $utils ?? new Utils(PLUGIN_NAME);
 
 $enhanced_log_cfg = Utils::getConfig();
 
@@ -201,3 +202,4 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 	</form>
 </div>
 
+<?= $utils->getLicenseBlock(); ?>
