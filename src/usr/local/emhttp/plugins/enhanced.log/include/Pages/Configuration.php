@@ -35,8 +35,6 @@ if ( ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
     throw new \RuntimeException("PLUGIN_NAME not defined");
 }
 
-$usage_cfg     = parse_ini_file("/boot/config/plugins/" . PLUGIN_NAME . "/usage.cfg", false, INI_SCANNER_RAW) ?: array();
-$usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 ?>
 
 <table class="tablesorter shift ups">
