@@ -68,7 +68,7 @@ class LogReader
                 continue;
             }
 
-            $split = str_getcsv($line);
+            $split = str_getcsv($line, ",", "\"", "");
             if (count($split) < 2) {
                 $utils->logmsg("Invalid match line: {$line}");
                 continue;

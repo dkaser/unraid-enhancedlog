@@ -35,8 +35,6 @@ if ( ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
     throw new \RuntimeException("PLUGIN_NAME not defined");
 }
 
-$usage_cfg     = parse_ini_file("/boot/config/plugins/" . PLUGIN_NAME . "/usage.cfg", false, INI_SCANNER_RAW) ?: array();
-$usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
 ?>
 
 <table class="tablesorter shift ups">
@@ -61,7 +59,7 @@ $usage_allowed = $usage_cfg['usage_allowed'] ?? "yes";
     <dl>
         <dt><?= $tr->tr("configuration.number_of_lines"); ?></dt>
         <dd>
-            <input type="text" name="LINES" class="narrow" maxlength="4" value="<?= htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
+            <input type="text" name="LINES" class="narrow" maxlength="4" value="<?= htmlspecialchars($enhanced_log_cfg['LINES'] ?? '');?>" placeholder="1000">
         </dd>
     </dl>
     <blockquote class='inline_help'>Number of lines to display in the Enhanced Syslog.  Default is 1000.</blockquote>
