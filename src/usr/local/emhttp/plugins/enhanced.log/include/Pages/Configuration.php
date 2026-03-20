@@ -59,7 +59,7 @@ if ( ! defined(__NAMESPACE__ . '\PLUGIN_NAME')) {
     <dl>
         <dt><?= $tr->tr("configuration.number_of_lines"); ?></dt>
         <dd>
-            <input type="text" name="LINES" class="narrow" maxlength="4" value="<?= htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
+            <input type="text" name="LINES" class="narrow" maxlength="4" value="<?= htmlspecialchars($enhanced_log_cfg['LINES'] ?? '');?>" placeholder="1000">
         </dd>
     </dl>
     <blockquote class='inline_help'>Number of lines to display in the Enhanced Syslog.  Default is 1000.</blockquote>
