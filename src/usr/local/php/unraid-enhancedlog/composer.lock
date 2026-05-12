@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9db27e281c0f7f36ec49087effa09fb9",
+    "content-hash": "aab3ed7442f45af46d2fd33f649d6ff6",
     "packages": [
         {
             "name": "edacerton/plugin-utils",
@@ -823,16 +823,16 @@
         },
         {
             "name": "tomloprod/colority",
-            "version": "v1.7.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomloprod/colority.git",
-                "reference": "ba032cec150fcd139808431c5a47c8dec6e83782"
+                "reference": "7d654196144b279d38f01ba6fd085e791c19dc9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomloprod/colority/zipball/ba032cec150fcd139808431c5a47c8dec6e83782",
-                "reference": "ba032cec150fcd139808431c5a47c8dec6e83782",
+                "url": "https://api.github.com/repos/tomloprod/colority/zipball/7d654196144b279d38f01ba6fd085e791c19dc9d",
+                "reference": "7d654196144b279d38f01ba6fd085e791c19dc9d",
                 "shasum": ""
             },
             "require": {
@@ -843,7 +843,7 @@
                 "laravel/pint": "^1.22.1",
                 "pestphp/pest": "^3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.5.0",
-                "rector/rector": "^1.0.4"
+                "rector/rector": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -873,7 +873,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tomloprod/colority/issues",
-                "source": "https://github.com/tomloprod/colority/tree/v1.7.0"
+                "source": "https://github.com/tomloprod/colority/tree/v2.0.0"
             },
             "funding": [
                 {
@@ -881,7 +881,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-01-11T09:27:19+00:00"
+            "time": "2026-05-09T14:47:58+00:00"
         }
     ],
     "packages-dev": [
